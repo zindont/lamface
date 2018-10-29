@@ -1,0 +1,32 @@
+.box-body{
+    background-color: #f5f6f8;
+}
+.box-body .row{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+#menu-right{
+    padding: 0;
+}
+.user-tabs{
+    padding: 0;
+    margin-bottom: 20px;
+}
+.user-tabs .blukff_tab_content{
+    display: none;
+}
+.user-tabs .blukff_tab_content.active{
+    display: block;
+}
+.user-tabs .tab-content{
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 0 10px;
+}
+.filter-zone .bulkff_form .below, .filter-zone .bulkff_form .after{
+    text-align: center;
+}
+.filter-zone .bulkff_form .below > div, .filter-zone .bulkff_form .after > div{
+    float: none;
+    display: inline;
+}

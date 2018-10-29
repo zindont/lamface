@@ -1,0 +1,309 @@
+// Grids
+$large-width : 1500px;
+$page-width : 1300px;
+$wide-start : 1200px;
+$landscape-start : 1024px;
+$desk-start : 900px;
+$portrait-start : 768px;
+$lap-start : 640px;
+$palm-start : 480px;
+
+@mixin background-cover() {
+  -webkit-background-size : cover;
+  -moz-background-size    : cover;
+  -ms-background-size     : cover;
+  -o-background-size      : cover;
+  background-size         : cover;
+}
+
+@mixin background-contain() {
+  -webkit-background-size : contain;
+  -moz-background-size    : contain;
+  -ms-background-size     : contain;
+  -o-background-size      : contain;
+  background-size         : contain;
+}
+
+@mixin translate-x($x) {
+  -webkit-transform : translateX($x);
+  -moz-transform    : translateX($x);
+  -ms-transform     : translateX($x);
+  -o-transform      : translateX($x);
+  transform         : translateX($x);
+}
+
+@mixin translate-y($y) {
+  -webkit-transform : translateY($y);
+  -moz-transform    : translateY($y);
+  -ms-transform     : translateY($y);
+  -o-transform      : translateY($y);
+  transform         : translateY($y);
+}
+
+@mixin translate-z($z) {
+  -webkit-transform : translateZ($z);
+  -moz-transform    : translateZ($z);
+  -ms-transform     : translateZ($z);
+  -o-transform      : translateZ($z);
+  transform         : translateZ($z);
+}
+
+@mixin translate-xy($x, $y) {
+  -webkit-transform : translateX($x) translateY($y);
+  -moz-transform    : translateX($x) translateY($y);
+  -ms-transform     : translateX($x) translateY($y);
+  -o-transform      : translateX($x) translateY($y);
+  transform         : translateX($x) translateY($y);
+}
+
+@mixin scale($number) {
+  -webkit-transform : scale($number);
+  -moz-transform    : scale($number);
+  -ms-transform     : scale($number);
+  -o-transform      : scale($number);
+  transform         : scale($number);
+}
+
+@mixin rotate($number) {
+  -webkit-transform : rotate($number);
+  -moz-transform    : rotate($number);
+  -ms-transform     : rotate($number);
+  -o-transform      : rotate($number);
+  transform         : rotate($number);
+}
+
+@mixin background-opacity($color: #000000, $opacity: 0.85) {
+  background : $color;
+  background : rgba($color, $opacity);
+}
+
+@mixin placeholder($placeholder) {
+  input::-webkit-input-placeholder {
+    color : $placeholder !important;
+  }
+  input:-moz-placeholder {
+    color   : $placeholder !important;
+    opacity : 1;
+  }
+  
+  input::-moz-placeholder {
+    color   : $placeholder !important;
+    opacity : 1;
+    
+  }
+  input:-ms-input-placeholder {
+    color : $placeholder !important;
+    
+  }
+}
+
+@mixin transition($s: 0.5s) {
+  transition : all $s ease;
+}
+
+@mixin font-awesome($glyph, $font : 'FontAwesome') {
+  font-family            : $font;
+  content                : "#{$glyph}";
+  speak                  : none;
+  font-weight            : normal;
+  font-variant           : normal;
+  text-transform         : none;
+  -webkit-font-smoothing : antialiased;
+  text-decoration        : none;
+}
+
+@mixin iconwoo( $glyph: '\e001',$font : 'WooCommerce' ) {
+  font-family            : $font;
+  content                : "#{$glyph}";
+  speak                  : none;
+  font-weight            : normal;
+  font-variant           : normal;
+  text-transform         : none;
+  -webkit-font-smoothing : antialiased;
+  text-decoration        : none;
+}
+
+@mixin flex() {
+  display : -webkit-flex;
+  display : -webkit-box;
+  display : -moz-flex;
+  display : -moz-box;
+  display : -ms-flexbox;
+  display : flex;
+}
+
+@mixin flex-wrap() {
+  -ms-flex-wrap     : wrap;
+  -webkit-flex-wrap : wrap;
+  flex-wrap         : wrap;
+}
+
+@mixin flex-inline() {
+  display : -ms-inline-flexbox;
+  display : -webkit-inline-flex;
+  display : inline-flex;
+}
+
+@mixin flex-center() {
+  -ms-flex-pack           : center;
+  -webkit-justify-content : center;
+  -webkit-box-pack        : center;
+  justify-content         : center;
+  
+}
+
+@mixin flex-middle() {
+  -ms-flex-align      : center;
+  -webkit-align-items : center;
+  -webkit-box-align   : center;
+  align-items         : center;
+}
+
+@mixin flex-top() {
+  -ms-flex-align      : start;
+  -webkit-align-items : flex-start;
+  -webkit-box-align   : start;
+  align-items         : flex-start;
+}
+
+@mixin flex-bottom() {
+  -ms-flex-align      : end;
+  -webkit-align-items : flex-end;
+  -webkit-box-align   : end;
+  align-items         : flex-end;
+}
+
+@mixin flex-right() {
+  -ms-flex-pack           : end;
+  -webkit-justify-content : flex-end;
+  -webkit-box-pack        : end;
+  justify-content         : flex-end;
+}
+
+@mixin flex-order($i : -1) {
+  -webkit-box-ordinal-group : $i + 1;
+  -webkit-order             : $i;
+  -ms-flex-order            : $i;
+  order                     : $i;
+}
+
+@mixin rotate($number) {
+  -webkit-transform : rotate($number);
+  -moz-transform    : rotate($number);
+  -ms-transform     : rotate($number);
+  -o-transform      : rotate($number);
+  transform         : rotate($number);
+}
+
+@mixin text-shadow($text-shadow) {
+  -webkit-text-shadow : $text-shadow;
+  -moz-text-shadow    : $text-shadow;
+  -ms-text-shadow     : $text-shadow;
+  text-shadow         : $text-shadow;
+}
+
+@mixin box-shadow($box-shadow) {
+  -webkit-box-shadow : $box-shadow;
+  -moz-box-shadow    : $box-shadow;
+  -ms-box-shadow     : $box-shadow;
+  box-shadow         : $box-shadow;
+}
+
+@mixin hover {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content : "";
+    display : table;
+  }
+  &:after {
+    clear : both;
+  }
+  zoom : 1;
+}
+
+@mixin placeholder($color: darken(#ffffff, 53%)) {
+  &::-webkit-input-placeholder {
+    color   : $color;
+    opacity : 1;
+  }
+  
+  &:-moz-placeholder {
+    color   : $color;
+    opacity : 1;
+  }
+  
+  &::-moz-placeholder {
+    color   : $color;
+    opacity : 1;
+  }
+  
+  &:-ms-input-placeholder {
+    color : $color;
+  }
+}
+
+@mixin media-query($type, $breakpoint: $lap-start) {
+  @if $type == "min" {
+    @media (min-width : $breakpoint) {
+      @content
+    }
+  } @else if $type == "max" {
+    @media (max-width : $breakpoint - 1px) {
+      @content
+    }
+  } @else if $type == "palm" {
+    @media (max-width : $portrait-start - 1px) {
+      @content
+    }
+  } @else if $type == "lap" {
+    @media (min-width : $portrait-start) and (max-width : $landscape-start - 1px) {
+      @content
+    }
+  } @else if $type == "desk" {
+    @media (min-width : $landscape-start) {
+      @content
+    }
+  } @else if $type == "wide" {
+    @media (min-width : $wide-start) {
+      @content
+    }
+  } @else if $type == "retina" {
+    @media only screen and (-webkit-min-device-pixel-ratio : 2),
+    only screen and (min--moz-device-pixel-ratio : 2),
+    only screen and (-o-min-device-pixel-ratio : 2/1),
+    only screen and (min-device-pixel-ratio : 2),
+    only screen and (min-resolution : 192dpi),
+    only screen and (min-resolution : 2dppx) {
+      @content
+    }
+  }
+}
+
+@mixin media-query-bracket($from: 0, $to: 0) {
+  @if $to > $from {
+    @media (min-width : $from) and (max-width : $to - 1px) {
+      @content
+    }
+  }
+}
+
+@mixin font-size($sizeValue: 1) {
+  font-size : ($sizeValue * 10) * 1px;
+}
+
+@mixin position($x: 0,$p: 0) {
+  position : absolute;
+  top      : $x;
+  left     : $x;
+  bottom   : $x;
+  right    : $x;
+  padding  : $p;
+}

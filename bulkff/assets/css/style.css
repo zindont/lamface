@@ -1,0 +1,421 @@
+.bulkff_form select, .bulkff_form input {
+    width   : 185px;
+    display : inline-block;
+    color   : #000000;
+}
+
+.bulkff_form select.small {
+    width : 110px;
+}
+
+.bulkff_form button {
+    color : #ffffff;
+}
+
+.bulkff-list {
+    position : relative;
+    overflow : hidden;
+    height   : 0;
+}
+
+.bulkff-list * {
+    transition         : all 0.5s ease-in-out 0s;
+    -webkit-transition : all 0.5s ease-in-out 0s;
+}
+
+.bulkff-list .item {
+    float : left;
+    width : 33%;
+}
+
+.daterangepicker.dropdown-menu {
+    font-size : 12px;
+}
+
+button.applyBtn.btn.btn-sm.btn-success {
+    background-color : #357ebd;
+    color            : #ffffff;
+    padding          : 1px 10px;
+    border-radius    : 5px;
+}
+
+.bulkff-list .item .wrap {
+    margin             : 8px;
+    background-color   : #ffffff;
+    border-radius      : 3px;
+    box-shadow         : 1px 1px 3px rgba(0, 0, 0, .1);
+    -webkit-box-shadow : 1px 1px 3px rgba(0, 0, 0, .1);
+    -moz-box-shadow    : 1px 1px 3px rgba(0, 0, 0, .1);
+    box-shadow         : 1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.bulkff-list .item .desc {
+    max-height    : 200px;
+    color         : rgb(0, 0, 0);
+    padding       : 20px;
+    overflow      : hidden;
+    font-size     : 14px;
+    line-height   : 20px;
+    margin-bottom : 10px;
+}
+
+.bulkff-list .item .thumb {
+    text-align : center;
+    position   : relative;
+    min-height : 100px;
+}
+
+.bulkff-list .item .bottom, .bulkff_show_item .item .bottom {
+    padding : 10px;
+}
+
+.bulkff-list .meta, .bulkff_show_item .meta {
+    margin      : 0;
+    border-top  : 1px solid rgba(229, 226, 220, 0.4);
+    padding     : 10px 7%;
+    font-weight : 300;
+    font-size   : 12px;
+    line-height : 21px;
+    height      : 44px;
+    text-align  : left;
+    clear       : both;
+    box-sizing  : border-box;
+}
+
+.bulkff-list .meta li, .bulkff_show_item li {
+    display      : inline-block;
+    margin-right : 10px;
+}
+
+.bulkff-list .meta li i, .bulkff_show_item li i {
+    margin-right : 5px;
+    color        : rgba(0, 0, 0, 0.48);
+}
+
+.bulkff-list .meta li strong, .bulkff_show_item li strong {
+    color : rgba(0, 0, 0, 0.48);
+}
+
+#blukff_content img {
+    width : auto;
+}
+
+.bulkff-list .ff-shop, .bulkff_show_item .ff-shop, .bulkff_cats .ff-shop {
+    position : relative;
+    margin   : 10px 0;
+}
+
+.bulkff_cats .ff-shop {
+    background-color : #ffffff;
+    border-bottom    : 1px solid #f3f3f3;
+}
+
+.bulkff-list .ff-shop .img, .bulkff_show_item .ff-shop .img, .bulkff_cats .ff-shop .img {
+    display  : block;
+    position : absolute;
+    left     : 10px;
+    top      : 0;
+    width    : 40px;
+    height   : 40px;
+}
+
+.bulkff_cats .ff-shop .img {
+    top               : 50%;
+    transform         : translateY(-50%);
+    -webkit-transform : translateY(-50%);
+}
+
+.bulkff-list .shortInfo, .bulkff_show_item .shortInfo, .bulkff_cats .shortInfo {
+    padding-left  : 65px;
+    padding-right : 10px;
+}
+
+.bulkff_cats .shortInfo {
+    padding : 15px 20px 15px 65px;
+}
+
+.bulkff-list .shortInfo a, .bulkff_show_item .shortInfo a {
+    display        : block;
+    overflow       : hidden;
+    box-sizing     : border-box;
+    padding        : 3px 0 0 0;
+    text-align     : left;
+    line-height    : 16px;
+    text-overflow  : ellipsis;
+    white-space    : nowrap;
+    color          : #555555;
+    text-transform : uppercase;
+    font-weight    : 600;
+    opacity        : 0.8;
+    font-size      : 13px;
+}
+
+.bulkff-list .shortInfo .date a, .litem_stream_cus .shortInfo .date a {
+    color       : #999999;
+    font-size   : 12px;
+    display     : block;
+    font-weight : normal;
+    margin-top  : 5px;
+}
+
+.bulkff-list .title_striem {
+    padding       : 15px 15px 0px 15px;
+    line-height   : 1;
+    font-size     : 14px;
+    margin-bottom : 0;
+}
+
+.daterangepicker {
+    display : none;
+}
+
+#bg_ovlay {
+    position   : fixed;
+    top        : 0;
+    left       : 0;
+    width      : 100%;
+    height     : 100%;
+    overflow-y : scroll;
+    background : rgba(0, 0, 0, 0.76);
+    z-index    : 10000000;
+    display    : block;
+}
+
+.bulkff_show_item {
+    background    : #ffffff;
+    width         : 600px;
+    max-width     : 100%;
+    display       : block;
+    margin        : 15px auto;
+    padding       : 15px 30px;
+    border-radius : 15px;
+    display       : block;
+}
+
+#bulkff_content {
+    display          : table;
+    width            : 100%;
+    background-color : #e9ebee;
+    padding          : 15px 0;
+    max-width        : 100%;
+    position         : relative;
+    z-index          : 300;
+}
+
+.bulkff_nav {
+    text-align : center;
+    margin-top : 30px;
+}
+
+.bulkff_nav a {
+    display       : inline-block;
+    margin        : 0 5px;
+    cursor        : pointer;
+    border        : 1px solid #cccccc;
+    width         : 32px;
+    line-height   : 32px;
+    border-radius : 50%;
+}
+
+.bulkff_nav a:hover, .bulkff_nav a.active {
+    color            : #ffffff;
+    background-color : #c10000;
+    border-color     : #c10000;
+}
+
+img.pview_video {
+    position          : absolute;
+    top               : 50%;
+    left              : 50%;
+    transform         : translate(-50%, -50%);
+    -webkit-transform : translate(-50%, -50%);
+    cursor            : pointer;
+    width             : 40px !important;
+}
+
+a.save_ffbb {
+    float            : right;
+    font-size        : 10px;
+    background-color : #337ab7;
+    color            : #ffffff;
+    display          : inline-block;
+    margin-left      : 10px;
+    padding          : 3px 5px 5px;
+    border-radius    : 3px;
+    cursor           : pointer;
+}
+
+.page_savefb {
+    margin-top : 30px;
+}
+
+.daterangepicker .calendar th, .daterangepicker .calendar td {
+    min-width : 25px !important;
+}
+
+.bg_popup_custom {
+    position         : fixed;
+    width            : 100%;
+    height           : 100%;
+    z-index          : 1000000;
+    background-color : rgba(0, 0, 0, 0.7);
+    top              : 0;
+    left             : 0;
+}
+
+.icon_loading_custom {
+    background-image  : url(../images/loading7_orange.gif);
+    position          : absolute;
+    left              : 50%;
+    top               : 50%;
+    width             : 50px;
+    height            : 50px;
+    background-size   : 100% 100%;
+    transform         : translate(-50%, -50%);
+    -webkit-transform : translate(-50%, -50%);
+}
+
+.row.row_full {
+    width     : 100%;
+    max-width : 100%;
+}
+
+.bulkff_cats h3 {
+
+}
+
+.w_25 {
+    padding : 0 15px;
+}
+
+.bulkff_select {
+    width      : 50px;
+    display    : inline-block;
+    text-align : center;
+}
+
+.bulkff_cats {
+    background-color : #ffffff;
+    margin-top       : 15px;
+}
+
+.bulkff_cats h3 {
+    background-color : #f3f3f3;
+}
+
+.bulkff_tab {
+    font-size : 11px;
+    padding   : 10px 3px;
+    display   : inline-block;
+    cursor    : pointer;
+}
+
+.bulkff_tab.active {
+    background-color : #ffffff;
+}
+
+.blukff_tab_content {
+    display : none;
+}
+
+.blukff_tab_content.active {
+    display : block;
+}
+
+.bulkff_save_page {
+    font-size        : 10px;
+    background-color : #337ab7;
+    color            : #ffffff;
+    display          : inline-block;
+    padding          : 1px 5px 2px;
+    border-radius    : 3px;
+    cursor           : pointer;
+    position         : absolute;
+    right            : 5px;
+    top              : 0;
+}
+
+.blukff_tab_content2 {
+    max-height : 500px;
+}
+
+.bottom_stick {
+    position : absolute;
+    width    : 100%;
+    bottom   : 0;
+    left     : 0;
+}
+
+.slide_bulkff, .slide_bulkff_quickview {
+    padding : 0 30px;
+}
+
+.slide_bulkff a, .slide_bulkff_quickview a {
+    display : block;
+    padding : 5px;
+}
+
+.slide_bulkff img, .slide_bulkff_quickview img {
+    border     : 1px solid #ffffff;
+    height     : 60px;
+    width      : 100%;
+    object-fit : cover;
+    cursor     : pointer;
+}
+
+.thumb_quick_view {
+    position : relative;
+}
+
+.slide_bulkff_quickview .owl-prev, .slide_bulkff .owl-prev {
+    display             : inline-block !important;
+    position            : absolute;
+    top                 : 50%;
+    left                : 0;
+    background-image    : url(../images/video_pre.png);
+    width               : 30px;
+    height              : 60px;
+    background-color    : #555555;
+    overflow            : hidden;
+    text-indent         : -100px;
+    background-position : center center;
+    background-repeat   : no-repeat;
+    transform           : translateY(-50%);
+    -webkit-transform   : translateY(-50%);
+}
+
+.slide_bulkff_quickview .owl-next, .slide_bulkff .owl-next {
+    display             : inline-block !important;
+    position            : absolute;
+    top                 : 50%;
+    right               : 0;
+    background-image    : url(../images/video_next.png);
+    width               : 30px;
+    height              : 60px;
+    background-color    : #555555;
+    overflow            : hidden;
+    text-indent         : -100px;
+    background-position : center center;
+    background-repeat   : no-repeat;
+    -webkit-transform   : translateY(-50%);
+}
+
+@media only screen and (min-width : 1025px) {
+    .w_75 {
+        width : 75%;
+        float : left;
+    }
+    
+    .w_25 {
+        width   : 25%;
+        float   : left;
+        padding : 0 15px;
+    }
+}
+
+@media only screen and (max-width : 767px) {
+    .bulkff-list .item {
+        float : none;
+        width : 100%;
+    }
+}
