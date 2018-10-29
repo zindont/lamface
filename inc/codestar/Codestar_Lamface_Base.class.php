@@ -10,7 +10,7 @@ class Codestar_Lamface_Base {
 		// Require
 		require_once get_template_directory() . '/inc/codestar/Codestar_Breadcrumbs.class.php';
 		// require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Cron.class.php';
-
+		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Theme_Activation.class.php';
 		// Filter
 		add_filter( 'body_class', array($this, 'codestar_lamface_body_classes') );
 
