@@ -232,7 +232,8 @@ get_header();
 											<div class="box box-danger">
 												<div class="box-body no-padding">
 													<ul class="users-list clearfix">
-														<?php foreach($fanPages as $fanPage):?>
+														<?php foreach($fanPages as $key => $fanPage): 
+															if($key>8) continue;?>
 															<?php 
 																$feed_id = $fanPage->feed_id;
 																$user_screenname = $fanPage->user_screenname;
