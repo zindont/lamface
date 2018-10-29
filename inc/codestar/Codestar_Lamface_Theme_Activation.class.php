@@ -10,14 +10,14 @@ class Codestar_Lamface_Theme_Activation {
 			// Something wrong
 			return;
 		}
-		
+
 		$this->codestar_create_lf_system_histories();
 	}
 
 	public function codestar_create_lf_system_histories() {
 		global $table_prefix, $wpdb;
 		
-		$table_name = $table_prefix . self::LF_SYSTEM_HISTORIES;
+		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 		
 		if ($this->isTableExist($table_name)) {
 			return false;
