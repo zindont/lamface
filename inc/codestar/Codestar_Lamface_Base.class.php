@@ -53,8 +53,15 @@ class Codestar_Lamface_Base {
 	 * Filter the update_user_meta
 	 */
 	public function codestar_lamface_update_user_metadata( $null, $object_id, $meta_key, $meta_value, $prev_value )	{
+		if (strpos($meta_key, '_bulk_page') === FALSE) {
+			return null;
+		}
+
 		var_dump($meta_value);
-		return null;	
+		var_dump(unserialize($meta_value));
+		var_dump($meta_key);
+
+		return null;
 	}
 
 	// get total contents
