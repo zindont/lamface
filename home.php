@@ -515,13 +515,13 @@ get_header();
 							<div class="col-xs-12">
 								<div class="box">
 									<div class="box-header with-border">
-											<h3 class="box-title">Content đã lưu</h3>
-											<div class="box-tools pull-right">
-												<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-												</button>
-												<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-												</button>
-											</div>
+										<h3 class="box-title">Content đã lưu</h3>
+										<div class="box-tools pull-right">
+											<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+											</button>
+											<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+											</button>
+										</div>
 									</div>
 									<div class="box-body">
 										<!-- DoShortcode Xem nhiều nhất 24h qua -->
@@ -533,8 +533,8 @@ get_header();
 											$arr = array();
 										else:?>
 											<div class="mansory-grid"><div class="grid-sizer"></div><div class="category-post">
-											<?php foreach( $arr as $it):?>
-												<?php
+											<?php foreach( $arr as $key => $it):
+												if($key>8) continue;
 												// $additional = json_decode( $item->post_additional'] );
 												global $wpdb; $result = $wpdb->get_results( 'SELECT * FROM ' . 'ltt_ff_posts_' . trim($it['cat_id']) . ' WHERE post_id = \'' . $it['post_id'] . '\'', OBJECT );
 												$item = $result[0];
@@ -646,6 +646,7 @@ get_header();
 							</div>
 						</div>
 					<?php endif;?>
+					<?php /*
 
 					<div class="row">
 						<div class="col-xs-12">
@@ -666,7 +667,7 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<?php /*
+					
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="box">
