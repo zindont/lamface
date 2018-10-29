@@ -57,7 +57,7 @@ class Codestar_Lamface_Base {
 			return null;
 		}
 
-		var_dump($meta_value);
+		var_dump(unserialize($prev_value));
 		var_dump(unserialize($meta_value));
 		var_dump($meta_key);
 
