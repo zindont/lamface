@@ -214,7 +214,46 @@ get_header();
 									</div>
 									<div class="box-body">
 										<!-- DoShortcode Fanpage nổi bật -->
-										<?php echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
+										<?php //echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
+										<?php 
+											$user_id = get_current_user_id();
+											global $wpdb;
+											$table_post = 'ltt_ff_posts_';
+											$table_cat = 'ltt_ff_cate';
+											//get cate list
+											$cats = $wpdb->get_results("SELECT * FROM $table_cat");
+											$fanPages = $uniqe_fps = array();
+											$total_fanpages = Codestar_Lamface_Base::codestar_get_list_posts_total_in_pages();
+											foreach($cats as $cat){
+												$table_post_name = $table_post.$cat->cate_id;
+												$fps      = $wpdb->get_results( "SELECT DISTINCT feed_id,user_screenname,user_pic,user_link FROM $table_post_name");
+												$fanPages = array_merge($fanPages,$fps);
+											}?>
+											<div class="box box-danger">
+												<div class="box-body no-padding">
+													<ul class="users-list clearfix">
+														<?php foreach($fanPages as $fanPage):?>
+															<?php 
+																$feed_id = $fanPage->feed_id;
+																$user_screenname = $fanPage->user_screenname;
+																$user_pic = $fanPage->user_pic;
+																$user_link = $fanPage->user_link;
+																if(in_array($feed_id,$uniqe_fps)){
+																	continue;
+																}
+																$uniqe_fps[] = $feed_id;
+															?>
+															<li>
+																<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
+																<a class="users-list-name" href="<?php echo $user_link;?>" target="_blank"><?php echo $user_screenname;?></a>
+																<span class="users-list-date"><?php echo $total_fanpages[$feed_id];?> Content</span>
+															</li>
+														<?php endforeach ;?>
+													</ul>
+													<!-- /.users-list -->
+													</div>
+													<!-- /.box-body -->
+												</div>
 									</div>
 								</div>
 							</div>
@@ -272,10 +311,6 @@ get_header();
 										<!-- /.users-list -->
 									</div>
 									<!-- /.box-body -->
-									<div class="box-footer text-center">
-										<a href="javascript:void(0)" class="uppercase">View All Users</a>
-									</div>
-									<!-- /.box-footer -->
 								</div>
 							</div>
 							<div class="col-xs-12">
@@ -460,10 +495,6 @@ get_header();
 										<!-- /.direct-chat-pane -->
 									</div>
 									<!-- /.box-body -->
-									<div class="box-footer text-center">
-										<a href="javascript:void(0)" class="uppercase">View All Users</a>
-									</div>
-									<!-- /.box-footer -->
 								</div>
 							</div>
               <!--/.box -->
