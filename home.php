@@ -231,6 +231,7 @@ get_header();
 										}
 										$bulk_page = get_user_meta($user_id, '_bulk_page');
 										$saved_pages = unserialize($bulk_page[0]);
+										print_r($fanPages);
 										var_dump($saved_pages);
 										?>
 										<ul class="users-list clearfix">
