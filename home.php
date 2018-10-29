@@ -238,8 +238,9 @@ get_header();
 										}
 										?>
 										<ul class="users-list clearfix">
-											<?php foreach($fanPages as $key => $fanPage): 
-												if($key>8) continue;?>
+											<?php $loop = 0;
+											foreach($fanPages as $fanPage): 
+												if($loop>7) continue;?>
 												<?php 
 													$feed_id = $fanPage->feed_id;
 													$user_screenname = $fanPage->user_screenname;
@@ -252,6 +253,7 @@ get_header();
 													if(!in_array($feed_id,$saved_pages_ids)){
 														continue;
 													}
+													$loop++;
 												?>
 												<li>
 													<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
