@@ -8,6 +8,7 @@
  */
 
 require_once "lib/lib.php";
+require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Constant.php';
 
 function che_do_bao_tri() {
 	if ( ! current_user_can( 'edit_themes' ) || ! is_user_logged_in() ) {

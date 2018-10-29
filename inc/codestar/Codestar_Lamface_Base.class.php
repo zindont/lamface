@@ -16,7 +16,6 @@ class Codestar_Lamface_Base {
 
 		// Actions
 		add_action( 'codestar_breadcrumbs', array($this, 'codestar_lamface_print_breadcrumbs'), 10, 1 );
-		add_action( 'after_setup_theme', array($this, 'codestar_lamface_global_constant'), 10, 1 );
 		add_action( 'after_setup_theme', array($this, 'codestar_lamface_firstly_hooks'), 30, 1 );
 	}
 
@@ -39,15 +38,6 @@ class Codestar_Lamface_Base {
 	 */
 	function codestar_lamface_print_breadcrumbs()	{
 		Codestar_Breadcrumbs::breadcrumb();
-	}
-
-	/**
-	 * Global constant
-	 */
-	public function codestar_lamface_global_constant($value='')	{
-		if ( defined( 'LF_SYSTEM_HISTORIES' ) ) {
-			define('LF_SYSTEM_HISTORIES', 'lf_system_histories');
-		}
 	}
 
 	/**
