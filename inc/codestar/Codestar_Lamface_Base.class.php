@@ -11,8 +11,10 @@ class Codestar_Lamface_Base {
 		require_once get_template_directory() . '/inc/codestar/Codestar_Breadcrumbs.class.php';
 		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Cron.class.php';
 		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Theme_Activation.class.php';
+
 		// Filter
 		add_filter( 'body_class', array($this, 'codestar_lamface_body_classes') );
+		add_filter( 'update_user_metadata', array($this, 'codestar_lamface_update_user_metadata'), 10, 5 );
 
 		// Actions
 		add_action( 'codestar_breadcrumbs', array($this, 'codestar_lamface_print_breadcrumbs'), 10, 1 );
@@ -45,6 +47,14 @@ class Codestar_Lamface_Base {
 	 */
 	public function codestar_lamface_firstly_hooks() {
 		new Codestar_Lamface_Theme_Activation();
+	}
+
+	/**
+	 * Filter the update_user_meta
+	 */
+	public function codestar_lamface_update_user_metadata( $null, $object_id, $meta_key, $meta_value, $prev_value )	{
+		var_dump($meta_value);
+		return null;	
 	}
 
 	// get total contents
