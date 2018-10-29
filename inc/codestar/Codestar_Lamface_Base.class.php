@@ -11,6 +11,7 @@ class Codestar_Lamface_Base {
 		require_once get_template_directory() . '/inc/codestar/Codestar_Breadcrumbs.class.php';
 		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Cron.class.php';
 		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Theme_Activation.class.php';
+		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Widgets.class.php';
 
 		// Filter
 		add_filter( 'body_class', array($this, 'codestar_lamface_body_classes') );
@@ -19,6 +20,7 @@ class Codestar_Lamface_Base {
 		add_action( 'codestar_breadcrumbs', array($this, 'codestar_lamface_print_breadcrumbs'), 10, 1 );
 		add_action( 'after_setup_theme', array($this, 'codestar_lamface_firstly_hooks'), 30, 1 );
 		add_action( 'codestar_lamface_save_system_history', array($this, 'codestar_lamface_save_system_history'), 10, 2 );
+		add_action( 'widgets_init', array($this, 'codestar_lamface_widgets_init'), 10 );
 	}
 
 	/**
@@ -47,6 +49,10 @@ class Codestar_Lamface_Base {
 	 */
 	public function codestar_lamface_firstly_hooks() {
 		new Codestar_Lamface_Theme_Activation();
+	}
+
+	public function codestar_lamface_widgets_init()	{
+		new Codestar_Lamface_Widgets();
 	}
 
 	public function codestar_lamface_save_system_history($target_code) {
