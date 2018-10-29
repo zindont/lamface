@@ -29,7 +29,7 @@ get_header();
 
 		    <section class="content">
 					<div class="row">
-						<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="info-box">
 								<span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
 
@@ -42,7 +42,7 @@ get_header();
 							<!-- /.info-box -->
 						</div>
 						<!-- /.col -->
-						<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="info-box">
 								<span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
 
@@ -55,13 +55,26 @@ get_header();
 							<!-- /.info-box -->
 						</div>
 						<!-- /.col -->
-						<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="info-box">
-								<span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+								<span class="info-box-icon bg-green"><i class="ion ion-ios-people-outline"></i></span>
 
 								<div class="info-box-content">
 									<span class="info-box-text text-uppercase">Tổng kịch bản</span>
 										<span class="info-box-number">2,000</span>
+								</div>
+								<!-- /.info-box-content -->
+							</div>
+							<!-- /.info-box -->
+						</div>
+						<!-- /.col -->
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="info-box">
+								<span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+								<div class="info-box-content">
+									<span class="info-box-text text-uppercase">Tổng người dùng</span>
+										<span class="info-box-number"><?php $count_users = count_users(); echo number_format_i18n($count_users['total_users']);?></span>
 								</div>
 								<!-- /.info-box-content -->
 							</div>
@@ -191,10 +204,9 @@ get_header();
               <!-- USERS LIST -->
               <div class="box box-danger">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Latest Members</h3>
+                  <h3 class="box-title">Thành viên mới nhất</h3>
 
                   <div class="box-tools pull-right">
-                    <span class="label label-danger">8 New Members</span>
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
@@ -204,46 +216,21 @@ get_header();
                 <!-- /.box-header -->
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
-                    <li>
-                      <img src="dist/img/user1-128x128.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Alexander Pierce</a>
-                      <span class="users-list-date">Today</span>
-                    </li>
-                    <li>
-                      <img src="dist/img/user8-128x128.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Norman</a>
-                      <span class="users-list-date">Yesterday</span>
-                    </li>
-                    <li>
-                      <img src="dist/img/user7-128x128.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Jane</a>
-                      <span class="users-list-date">12 Jan</span>
-                    </li>
-                    <li>
-                      <img src="dist/img/user6-128x128.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">John</a>
-                      <span class="users-list-date">12 Jan</span>
-                    </li>
-                    <li>
-                      <img src="dist/img/user2-160x160.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Alexander</a>
-                      <span class="users-list-date">13 Jan</span>
-                    </li>
-                    <li>
-                      <img src="dist/img/user5-128x128.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Sarah</a>
-                      <span class="users-list-date">14 Jan</span>
-                    </li>
-                    <li>
-                      <img src="dist/img/user4-128x128.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Nora</a>
-                      <span class="users-list-date">15 Jan</span>
-                    </li>
-                    <li>
-                      <img src="dist/img/user3-128x128.jpg" alt="User Image">
-                      <a class="users-list-name" href="#">Nadia</a>
-                      <span class="users-list-date">15 Jan</span>
-                    </li>
+										<?php 
+											$users = get_users(array('orderby'=>'ID','order'=>'DESC'));
+											foreach($users as $user):
+										?>
+											<li>
+												<img src="<?php echo get_avatar_url($user->ID);?>" alt="<?php echo $user->display_name;?>?>">
+												<a class="users-list-name" href="#"><?php echo $user->display_name;?></a>
+												<span class="users-list-date"><?php printf( __('Thành viên từ %s ', 'codestar_lamface'), 
+                        date( 
+                            "d/m/Y", 
+                            strtotime( $current_user->get('user_registered') ) 
+                        )
+                    ) ?></span>
+											</li>
+										<?php endforeach;?>
                   </ul>
                   <!-- /.users-list -->
                 </div>
