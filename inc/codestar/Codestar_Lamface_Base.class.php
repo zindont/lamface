@@ -18,6 +18,7 @@ class Codestar_Lamface_Base {
 		// Actions
 		add_action( 'codestar_breadcrumbs', array($this, 'codestar_lamface_print_breadcrumbs'), 10, 1 );
 		add_action( 'after_setup_theme', array($this, 'codestar_lamface_firstly_hooks'), 30, 1 );
+		add_action( 'codestar_lamface_save_system_history', array($this, 'codestar_lamface_save_system_history'), 10, 2 );
 	}
 
 	/**
@@ -46,6 +47,25 @@ class Codestar_Lamface_Base {
 	 */
 	public function codestar_lamface_firstly_hooks() {
 		new Codestar_Lamface_Theme_Activation();
+	}
+
+	public function codestar_lamface_save_system_history($feed_id, $target_code) {
+		if (! defined('LF_SYSTEM_HISTORIES')) {
+			// Something wrong
+			return;
+		}
+		
+		global $table_prefix, $wpdb;
+		
+		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
+		$recordData = array(
+			'target-name' => 'Tên hiển thị ở thông báo',
+			'target-code' => (string) $target_code,
+			'target-url' => '#',
+			'target-image' => 'NO_IMAGE',
+			'target-message' => 'NO_MESSAGE',
+		);
+		$wpdb->replace( $table_name, $recordData );
 	}
 
 	// get total contents
