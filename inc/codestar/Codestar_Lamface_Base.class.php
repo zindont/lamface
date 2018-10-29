@@ -59,11 +59,11 @@ class Codestar_Lamface_Base {
 		
 		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 		$recordData = array(
-			'target-name' => 'Tên hiển thị ở thông báo',
-			'target-code' => (string) $target_code,
-			'target-url' => '#',
-			'target-image' => 'NO_IMAGE',
-			'target-message' => 'NO_MESSAGE',
+			'target_name' => 'Tên hiển thị ở thông báo',
+			'target_code' => (string) $target_code,
+			'target_url' => '#',
+			'target_image' => 'NO_IMAGE',
+			'target_message' => 'NO_MESSAGE',
 		);
 		$wpdb->replace( $table_name, $recordData );
 	}
