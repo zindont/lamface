@@ -23,7 +23,7 @@
 	<!-- Control Sidebar -->
 	<aside class="control-sidebar control-sidebar-dark">
 		<h3><?php echo __( 'Đang cập nhật', 'codestar_lamface' ) ?></h3>
-		<?php get_sidebar() ?>
+		<?php get_sidebar('sidebar-1') ?>
 	</aside>
 	<!-- /.control-sidebar -->
 	<!-- Add the sidebar's background. This div must be placed
