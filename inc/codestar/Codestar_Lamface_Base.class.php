@@ -9,12 +9,15 @@ class Codestar_Lamface_Base {
 	function __construct(){
 		// Require
 		require_once get_template_directory() . '/inc/codestar/Codestar_Breadcrumbs.class.php';
-
+		// require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Cron.class.php';
+		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Theme_Activation.class.php';
 		// Filter
 		add_filter( 'body_class', array($this, 'codestar_lamface_body_classes') );
 
 		// Actions
 		add_action( 'codestar_breadcrumbs', array($this, 'codestar_lamface_print_breadcrumbs'), 10, 1 );
+		add_action( 'after_setup_theme', array($this, 'codestar_lamface_global_constant'), 10, 1 );
+		add_action( 'after_setup_theme', array($this, 'codestar_lamface_firstly_hooks'), 30, 1 );
 	}
 
 	/**
@@ -36,6 +39,22 @@ class Codestar_Lamface_Base {
 	 */
 	function codestar_lamface_print_breadcrumbs()	{
 		Codestar_Breadcrumbs::breadcrumb();
+	}
+
+	/**
+	 * Global constant
+	 */
+	public function codestar_lamface_global_constant($value='')	{
+		if ( defined( 'LF_SYSTEM_HISTORIES' ) ) {
+			define('LF_SYSTEM_HISTORIES', 'lf_system_histories');
+		}
+	}
+
+	/**
+	 * Firstly hook
+	 */
+	public function codestar_lamface_firstly_hooks() {
+		new Codestar_Lamface_Theme_Activation();
 	}
 
 	// get total contents
