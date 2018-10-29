@@ -521,6 +521,9 @@ function bulkff_save_page() {
 		update_user_meta( $user_id, '_bulk_page', serialize( $data ) );
 		$key = 2;
 	}
+
+	do_action('codestar_lamface_save_system_history', $feed_id, $fanpage_id);
+
 	echo $key;
 	die();
 }
