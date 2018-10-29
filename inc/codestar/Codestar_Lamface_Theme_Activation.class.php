@@ -6,7 +6,7 @@
 class Codestar_Lamface_Theme_Activation {
 
 	function __construct() {
-		var_dump(constant(LF_SYSTEM_HISTORIES));
+		var_dump(LF_SYSTEM_HISTORIES);
 		// $this->codestar_create_lf_system_histories();
 	}
 
