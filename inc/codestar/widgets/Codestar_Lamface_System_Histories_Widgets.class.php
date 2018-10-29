@@ -9,9 +9,9 @@ class Codestar_Lamface_System_Histories_Widgets extends WP_Widget {
 	 */
 	function __construct() {
 		parent::__construct(
-			'foo_widget', // Base ID
-			esc_html__( 'Widget Title', 'text_domain' ), // Name
-			array( 'description' => esc_html__( 'A Foo Widget', 'text_domain' ), ) // Args
+			'codestar_lamface_system_histories', // Base ID
+			esc_html__( 'Lamface System Histories', 'codestar_lamface' ), // Name
+			array( 'description' => esc_html__( 'System Histories Widget', 'codestar_lamface' ), ) // Args
 		);
 	}
 
