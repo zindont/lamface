@@ -522,7 +522,7 @@ function bulkff_save_page() {
 		$key = 2;
 	}
 
-	do_action('codestar_lamface_save_system_history', $feed_id, $fanpage_id);
+	do_action('codestar_lamface_save_system_history', $feed_id, $cat);
 
 	echo $key;
 	die();

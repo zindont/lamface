@@ -60,7 +60,7 @@ class Codestar_Lamface_Base {
 		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 		$recordData = array(
 			'target_name' => 'Tên hiển thị ở thông báo',
-			'target_code' => $target_code,
+			'target_code' => (string) $target_code,
 			'target_url' => '#',
 			'target_image' => 'NO_IMAGE',
 			'target_message' => 'NO_MESSAGE',
