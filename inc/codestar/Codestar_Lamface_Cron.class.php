@@ -4,7 +4,6 @@
  * @author info@zindo.info
  */
 class Codestar_Lamface_Cron {
-	const LF_SYSTEM_HISTORIES = constant("LF_SYSTEM_HISTORIES");
 
 	function __construct() {
 		add_filter( 'cron_schedules', array($this, 'codestar_lamface_cron_interval') );
@@ -30,10 +29,9 @@ class Codestar_Lamface_Cron {
 
 	public function codestar_cleanup_widget_system_histories_exec()	{
 		global $wpdb;
-		$table_name = $wpdb->prefix . self::LF_SYSTEM_HISTORIES;
+		$table_name = $wpdb->prefix . LF_SYSTEM_HISTORIES;
 		
 		$results = $wpdb->get_results( "DELETE FROM {$table_name} WHERE fired_time < (SELECT DATE_SUB(NOW(), INTERVAL 120 MINUTE))", OBJECT );
 	}
 }
-
-$cron = new Codestar_Lamface_Cron();
+new Codestar_Lamface_Cron();
