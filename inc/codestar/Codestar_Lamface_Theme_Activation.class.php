@@ -6,8 +6,12 @@
 class Codestar_Lamface_Theme_Activation {
 
 	function __construct() {
-		var_dump(LF_SYSTEM_HISTORIES);
-		// $this->codestar_create_lf_system_histories();
+		if (! defined('LF_SYSTEM_HISTORIES')) {
+			// Something wrong
+			return;
+		}
+		
+		$this->codestar_create_lf_system_histories();
 	}
 
 	public function codestar_create_lf_system_histories() {
