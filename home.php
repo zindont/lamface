@@ -258,7 +258,7 @@ get_header();
 													<a class="users-list-name" href="<?php echo $user_link;?>" target="_blank"><?php echo $user_screenname;?></a>
 													<span class="users-list-date"><?php echo $total_fanpages[$feed_id];?> Content</span>
 												</li>
-											<?php endforeach*/ ;?>
+											<?php endforeach ;?>
 										</ul>
 										<!-- /.users-list -->
 									</div>
