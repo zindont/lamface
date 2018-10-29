@@ -457,21 +457,24 @@ function bulkff_user() {
 			$post = $wpdb->get_results( 'SELECT * FROM ' . 'ltt_ff_posts_' . trim($item['cat_id']) . ' WHERE post_id = \'' . $post_id . '\'', OBJECT );
 			if ( count( $post ) > 0 )
 			{
-				$response = $wpdb->insert( $wpdb->prefix . 'notifs', 
-													array(  
-														'user_name' => $user->user_nicename,
-														'avatar'	=> get_avatar( $user->user_email, 60 ),
-														'message'	=> 'đã lưu bài viết ' . $post_id . ' của fanpage <b>' . $post[0]->user_screenname . '</b>',
-														'path'		=> $post[0]->post_permalink
-													),
-													array( '%s', '%s', '%s', '%s' )
-												);
-												var_dump($response);
+				$response = $wpdb->insert( 
+					$wpdb->prefix . 'notifs', 
+					array(  
+						'user_name' => $user->user_nicename,
+						'avatar'	=> get_avatar( $user->user_email, 60 ),
+						'message'	=> 'đã lưu bài viết ' . $post_id . ' của fanpage <b>' . $post[0]->user_screenname . '</b>',
+						'path'		=> $post[0]->post_permalink
+					),
+					array( '%s', '%s', '%s', '%s' )
+				);
+
 			}
 		}
 		/// #END
+
+		do_action('codestar_lamface_save_system_history', $post_id, $cat);
 	}
-		
+	
 	die();
 }
 
