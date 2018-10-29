@@ -222,7 +222,7 @@ get_header();
 										$table_cat = 'ltt_ff_cate';
 										//get cate list
 										$cats = $wpdb->get_results("SELECT * FROM $table_cat");
-										$fanPages = $uniqe_fps = array();
+										$fanPages = $uniqe_fps = $saved_pages_ids = array();
 										$total_fanpages = Codestar_Lamface_Base::codestar_get_list_posts_total_in_pages();
 										foreach($cats as $cat){
 											$table_post_name = $table_post.$cat->cate_id;
@@ -231,11 +231,14 @@ get_header();
 										}
 										$bulk_page = get_user_meta($user_id, '_bulk_page');
 										$saved_pages = unserialize($bulk_page[0]);
-										//print_r($fanPages);
-										print_r($saved_pages);
+										foreach($saved_pages as $sp){
+											foreach($sp as $it){
+												$saved_pages_ids[] = $it;
+											}
+										}
 										?>
 										<ul class="users-list clearfix">
-											<?php /*foreach($fanPages as $key => $fanPage): 
+											<?php foreach($fanPages as $key => $fanPage): 
 												if($key>8) continue;?>
 												<?php 
 													$feed_id = $fanPage->feed_id;
@@ -246,6 +249,9 @@ get_header();
 														continue;
 													}
 													$uniqe_fps[] = $feed_id;
+													if(!in_array($feed_id,$saved_pages_ids)){
+														continue;
+													}
 												?>
 												<li>
 													<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
