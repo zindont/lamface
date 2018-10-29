@@ -49,7 +49,7 @@ class Codestar_Lamface_Base {
 		new Codestar_Lamface_Theme_Activation();
 	}
 
-	public function codestar_lamface_save_system_history($feed_id, $target_code) {
+	public function codestar_lamface_save_system_history($target_code) {
 		if (! defined('LF_SYSTEM_HISTORIES')) {
 			// Something wrong
 			return;
