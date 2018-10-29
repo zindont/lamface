@@ -472,7 +472,7 @@ function bulkff_user() {
 		}
 		/// #END
 
-		do_action('codestar_lamface_save_system_history', $post_id, $cat);
+		do_action('codestar_lamface_save_system_history', $_POST["post_id"], $cat);
 	}
 	
 	die();
