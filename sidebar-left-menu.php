@@ -90,7 +90,7 @@ global $current_user;
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/fanpage-da-luu/">
                     <i class="fa fa-calendar"></i>
                     Fanpage đã lưu
                     <span class="pull-right-container"><small class="label pull-right bg-green"><?php echo Codestar_Lamface_Base::codestar_get_total_saved_pages(get_current_user_id()); ?></small></span>
