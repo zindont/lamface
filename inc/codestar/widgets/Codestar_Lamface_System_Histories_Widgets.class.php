@@ -27,7 +27,7 @@ class Codestar_Lamface_System_Histories_Widgets extends WP_Widget {
 	public function widget( $args, $instance ) {
 		// Pass a variable to get_template_part
 		set_query_var('args', $args);
-		set_query_var('$instance', $instance);
+		set_query_var('instance', $instance);
 		
 		get_template_part( 'inc/codestar/templates/widgets/widget', 'system_histories' );
 	}
