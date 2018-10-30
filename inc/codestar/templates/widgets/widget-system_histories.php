@@ -1,18 +1,21 @@
 <?php
-	global $wp_query;
+	if (! defined('LF_SYSTEM_HISTORIES')) {
+		// Something wrong
+		return;
+	}
+
+	global $wp_query, $wpdb, $table_prefix;
 
 	extract( $wp_query->query_vars );
 	
 	if ( empty( $instance['title'] ) ) {
 		$instance['title'] = __( 'Nhật ký hệ thống', 'codestar_lamface' );
 	}
+	
+	$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 
-	// echo $args['before_widget'];
-	// if ( ! empty( $instance['title'] ) ) {
-	// 	echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-	// }
-	// echo esc_html__( 'Hello, World!', 'text_domain' );
-	// echo $args['after_widget'];
+	$histories = $wpdb->get_row( "SELECT * FROM $table_name LIMIT {$instance['numOfRows']} ORDER BY fired_time DESC" );
+	var_dump($histories);
 ?>
 
 <div class="box box-success">
