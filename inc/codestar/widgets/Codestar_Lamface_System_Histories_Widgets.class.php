@@ -31,6 +31,8 @@ class Codestar_Lamface_System_Histories_Widgets extends WP_Widget {
 		}
 		echo esc_html__( 'Hello, World!', 'text_domain' );
 		echo $args['after_widget'];
+
+		get_template_part( 'inc/codestar/templates/widgets/widget', 'system_histories' );
 	}
 
 	/**
