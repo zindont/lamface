@@ -61,14 +61,14 @@ class Codestar_Lamface_Base {
 			return;
 		}
 		
-		global $table_prefix, $wpdb;
+		global $table_prefix, $wpdb, $current_user;
 		
 		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 		$recordData = array(
-			'target_name' => 'Tên hiển thị ở thông báo',
+			'target_name' => $current_user->get('user_nicename'),
 			'target_code' => (string) $target_code,
 			'target_url' => '#',
-			'target_image' => 'NO_IMAGE',
+			'target_image' => get_avatar_url( $current_user ),
 			'target_message' => 'NO_MESSAGE',
 		);
 		$wpdb->replace( $table_name, $recordData );
