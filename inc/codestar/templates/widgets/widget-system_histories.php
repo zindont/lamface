@@ -32,10 +32,16 @@
 	<!-- /.box-header -->
 	<div class="box-body">
 		<!-- Conversations are loaded here -->
-		<?php foreach ($histories as $key => $record): ?>
-			<div class="direct-chat-messages">
+		<div class="direct-chat-messages">
+			<?php foreach ($histories as $key => $record): ?>
+				<?php 
+					$externalClasses = array();
+					if ($key % 2 == 0) {
+						$externalClasses[] = 'right';
+					}
+				?>
 				<!-- Message. Default to the left -->
-				<div class="direct-chat-msg">
+				<div class="direct-chat-msg <?php esc_attr_e( implode(' ', $externalClasses) ); ?>">
 					<div class="direct-chat-info clearfix">
 						<span class="direct-chat-name pull-left"><?php echo $record->target_name ?></span>
 						<span class="direct-chat-timestamp pull-right"><?php echo $record->fired_time ?></span>
@@ -49,9 +55,9 @@
 					<!-- /.direct-chat-text -->
 				</div>
 				<!-- /.direct-chat-msg -->
-			</div>
-			<!--/.direct-chat-messages-->			
-		<?php endforeach ?>
+			<?php endforeach ?>
+		</div>
+		<!--/.direct-chat-messages-->	
 	</div>
 	<!-- /.box-body -->	
 </div>
