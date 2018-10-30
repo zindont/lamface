@@ -14,6 +14,11 @@
  */
 
 get_header();
+
+$user_id = get_current_user_id();
+global $wpdb;
+$table_post = 'ltt_ff_posts_';
+$table_cat = 'ltt_ff_cate';
 ?>
 
 	<div id="primary" class="content-area">
@@ -116,13 +121,13 @@ get_header();
 
 													<div class="info-box-content">
 														<span class="info-box-text">FANPAGE ĐÃ LƯU</span>
-														<span class="info-box-number">5,200</span>
+														<span class="info-box-number"><?php $total_saved_fanpages = Codestar_Lamface_Base::codestar_get_total_saved_pages($user_id); echo $total_saved_fanpages;?></span>
 
 														<div class="progress">
-															<div class="progress-bar" style="width: 50%"></div>
+															<div class="progress-bar" style="width: <?php echo ($total_saved_fanpages*100/50); ?>%"></div>
 														</div>
 														<span class="progress-description">
-															Trong tổng số 30 trang
+															Trong tổng số 50 trang
 														</span>
 													</div>
 													<!-- /.info-box-content -->
@@ -133,13 +138,13 @@ get_header();
 
 													<div class="info-box-content">
 														<span class="info-box-text">CONTENT ĐÃ LƯU</span>
-														<span class="info-box-number">92,050</span>
+														<span class="info-box-number"><?php $total_saved_posts = Codestar_Lamface_Base::codestar_get_total_saved_posts($user_id); echo $total_saved_posts;?></span>
 
 														<div class="progress">
-															<div class="progress-bar" style="width: 20%"></div>
+															<div class="progress-bar" style="width: <?php echo ($total_saved_posts*100/150); ?>%"></div>
 														</div>
 														<span class="progress-description">
-															Trong tổng số 50 bài
+															Trong tổng số 150 bài
 														</span>
 													</div>
 													<!-- /.info-box-content -->
@@ -150,10 +155,10 @@ get_header();
 
 													<div class="info-box-content">
 														<span class="info-box-text">CONTENT ĐÃ TẠO</span>
-														<span class="info-box-number">114,381</span>
+														<span class="info-box-number">9</span>
 
 														<div class="progress">
-															<div class="progress-bar" style="width: 70%"></div>
+															<div class="progress-bar" style="width: <?php echo (9*100/20);?>%"></div>
 														</div>
 														<span class="progress-description">
 															Trong tổng số 20 bài
@@ -167,10 +172,10 @@ get_header();
 
 													<div class="info-box-content">
 														<span class="info-box-text">FANPAGE NHẬP VÀO HỆ THỐNG</span>
-														<span class="info-box-number">163,921</span>
+														<span class="info-box-number">5</span>
 
 														<div class="progress">
-															<div class="progress-bar" style="width: 40%"></div>
+															<div class="progress-bar" style="width: <?php echo (5*100/20); ?>%"></div>
 														</div>
 														<span class="progress-description">
 															Trong tổng số 20 trang
@@ -184,10 +189,10 @@ get_header();
 
 													<div class="info-box-content">
 														<span class="info-box-text">CONTENT ĐÃ BÁN</span>
-														<span class="info-box-number">163,921</span>
+														<span class="info-box-number">5</span>
 
 														<div class="progress">
-															<div class="progress-bar" style="width: 40%"></div>
+															<div class="progress-bar" style="width: <?php echo (5*100/20);?>%"></div>
 														</div>
 														<span class="progress-description">
 															Trong tổng số 20 bài
@@ -238,10 +243,6 @@ get_header();
 										<!-- DoShortcode Fanpage nổi bật -->
 										<?php //echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
 										<?php 
-										$user_id = get_current_user_id();
-										global $wpdb;
-										$table_post = 'ltt_ff_posts_';
-										$table_cat = 'ltt_ff_cate';
 										//get cate list
 										$cats = $wpdb->get_results("SELECT * FROM $table_cat");
 										$fanPages = $uniqe_fps = $saved_pages_ids = array();
@@ -384,7 +385,7 @@ get_header();
 												<?php foreach( $arr as $key => $it):
 													if($key>12) continue;
 													// $additional = json_decode( $item->post_additional'] );
-													global $wpdb; $result = $wpdb->get_results( 'SELECT * FROM ' . 'ltt_ff_posts_' . trim($it['cat_id']) . ' WHERE post_id = \'' . $it['post_id'] . '\'', OBJECT );
+													$result = $wpdb->get_results( 'SELECT * FROM ' . 'ltt_ff_posts_' . trim($it['cat_id']) . ' WHERE post_id = \'' . $it['post_id'] . '\'', OBJECT );
 													$item = $result[0];
 													$interactive = json_decode($item->post_additional); 
 													?>
