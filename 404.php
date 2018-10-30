@@ -13,19 +13,17 @@ get_header();
 	<section id="primary" class="content-area content">
 		<div class="box box-default">
             <div class="box-header with-border content-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'codestar_lamface' ); ?></h1>
+				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'lamface' ); ?></h1>
 				<?php 
 				// Breadcrumb
-				if ( function_exists('codestar_breadcrumb') ) {
-					codestar_breadcrumb();
-				}
+				do_action( 'codestar_breadcrumbs' );
 				?>
             </div>
             <!-- /.box-header -->
             <div class="box-body error-page">
         		<h2 class="headline text-yellow"> 404</h2>
 				<div class="error-content">
-					<h3><i class="fa fa-warning text-yellow"></i> <?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'codestar_lamface' ); ?></h3>
+					<h3><i class="fa fa-warning text-yellow"></i> <?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'lamface' ); ?></h3>
 
 					<p>
 						We could not find the page you were looking for.
