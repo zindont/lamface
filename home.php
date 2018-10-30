@@ -226,69 +226,78 @@ $table_cat = 'ltt_ff_cate';
 										<!-- DoShortcode Fanpage nổi bật -->
 										<?php echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
 									</div>
+
+									<div class="box-footer text-center">
+										<a href="/danh-sach-fanpage/" class="uppercase">Xem tất cả</a>
+									</div>
 								</div>
 							</div>
-							<div class="col-xs-12 col-md-6">
-								<div class="box box-warning">
-									<div class="box-header with-border">
-											<h3 class="box-title">Fanpage đã lưu</h3>
-											<div class="box-tools pull-right">
-												<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-												</button>
-												<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-												</button>
-											</div>
-									</div>
-									<div class="box-body">
-										<!-- DoShortcode Fanpage nổi bật -->
-										<?php //echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
-										<?php 
-										//get cate list
-										$cats = $wpdb->get_results("SELECT * FROM $table_cat");
-										$fanPages = $uniqe_fps = $saved_pages_ids = array();
-										$total_fanpages = Codestar_Lamface_Base::codestar_get_list_posts_total_in_pages();
-										foreach($cats as $cat){
-											$table_post_name = $table_post.$cat->cate_id;
-											$fps      = $wpdb->get_results( "SELECT DISTINCT feed_id,user_screenname,user_pic,user_link FROM $table_post_name");
-											$fanPages = array_merge($fanPages,$fps);
-										}
-										$bulk_page = get_user_meta($user_id, '_bulk_page');
-										$saved_pages = unserialize($bulk_page[0]);
-										foreach($saved_pages as $sp){
-											foreach($sp as $it){
-												$saved_pages_ids[] = $it;
+							<?php if(is_user_logged_in()):?>
+								<div class="col-xs-12 col-md-6">
+									<div class="box box-warning">
+										<div class="box-header with-border">
+												<h3 class="box-title">Fanpage đã lưu</h3>
+												<div class="box-tools pull-right">
+													<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+													</button>
+													<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+													</button>
+												</div>
+										</div>
+										<div class="box-body">
+											<!-- DoShortcode Fanpage nổi bật -->
+											<?php //echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
+											<?php 
+											//get cate list
+											$cats = $wpdb->get_results("SELECT * FROM $table_cat");
+											$fanPages = $uniqe_fps = $saved_pages_ids = array();
+											$total_fanpages = Codestar_Lamface_Base::codestar_get_list_posts_total_in_pages();
+											foreach($cats as $cat){
+												$table_post_name = $table_post.$cat->cate_id;
+												$fps      = $wpdb->get_results( "SELECT DISTINCT feed_id,user_screenname,user_pic,user_link FROM $table_post_name");
+												$fanPages = array_merge($fanPages,$fps);
 											}
-										}
-										?>
-										<ul class="users-list clearfix">
-											<?php $loop = 0;
-											foreach($fanPages as $fanPage): 
-												if($loop>7) continue;?>
-												<?php 
-													$feed_id = $fanPage->feed_id;
-													$user_screenname = $fanPage->user_screenname;
-													$user_pic = $fanPage->user_pic;
-													$user_link = $fanPage->user_link;
-													if(in_array($feed_id,$uniqe_fps)){
-														continue;
-													}
-													$uniqe_fps[] = $feed_id;
-													if(!in_array($feed_id,$saved_pages_ids)){
-														continue;
-													}
-													$loop++;
-												?>
-												<li>
-													<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
-													<a class="users-list-name" href="<?php echo $user_link;?>" target="_blank"><?php echo $user_screenname;?></a>
-													<span class="users-list-date"><?php echo $total_fanpages[$feed_id];?> Content</span>
-												</li>
-											<?php endforeach ;?>
-										</ul>
-										<!-- /.users-list -->
+											$bulk_page = get_user_meta($user_id, '_bulk_page');
+											$saved_pages = unserialize($bulk_page[0]);
+											foreach($saved_pages as $sp){
+												foreach($sp as $it){
+													$saved_pages_ids[] = $it;
+												}
+											}
+											?>
+											<ul class="users-list clearfix">
+												<?php $loop = 0;
+												foreach($fanPages as $fanPage): 
+													if($loop>7) continue;?>
+													<?php 
+														$feed_id = $fanPage->feed_id;
+														$user_screenname = $fanPage->user_screenname;
+														$user_pic = $fanPage->user_pic;
+														$user_link = $fanPage->user_link;
+														if(in_array($feed_id,$uniqe_fps)){
+															continue;
+														}
+														$uniqe_fps[] = $feed_id;
+														if(!in_array($feed_id,$saved_pages_ids)){
+															continue;
+														}
+														$loop++;
+													?>
+													<li>
+														<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
+														<a class="users-list-name" href="<?php echo $user_link;?>" target="_blank"><?php echo $user_screenname;?></a>
+														<span class="users-list-date"><?php echo $total_fanpages[$feed_id];?> Content</span>
+													</li>
+												<?php endforeach ;?>
+											</ul>
+											<!-- /.users-list -->
+										</div>
+										<div class="box-footer text-center">
+											<a href="/fanpage-da-luu/" class="uppercase">Xem tất cả</a>
+										</div>
 									</div>
 								</div>
-							</div>
+							<?php endif;?>
 							<div class="col-xs-12 col-md-6">
 								<div class="box box-danger">
 									<div class="box-header with-border">
@@ -303,6 +312,9 @@ $table_cat = 'ltt_ff_cate';
 									<div class="box-body">
 										<!-- DoShortcode Fanpage nổi bật -->
 										<?php echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
+									</div>
+									<div class="box-footer text-center">
+										<a href="/danh-sach-fanpage/" class="uppercase">Xem tất cả</a>
 									</div>
 								</div>
 							</div>
@@ -529,6 +541,9 @@ $table_cat = 'ltt_ff_cate';
 													});
 											</script>
 										<?php endif;?>
+									</div>
+									<div class="box-footer text-center">
+										<a href="/mau-quang-cao-da-luu/" class="uppercase">Xem tất cả</a>
 									</div>
 								</div>
 							</div>
