@@ -25,13 +25,10 @@ class Codestar_Lamface_System_Histories_Widgets extends WP_Widget {
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
-		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-		}
-		echo esc_html__( 'Hello, World!', 'text_domain' );
-		echo $args['after_widget'];
-
+		// Pass a variable to get_template_part
+		set_query_var('args', $args);
+		set_query_var('$instance', $instance);
+		
 		get_template_part( 'inc/codestar/templates/widgets/widget', 'system_histories' );
 	}
 
