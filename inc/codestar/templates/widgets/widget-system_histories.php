@@ -38,6 +38,11 @@
 					if ($key % 2 == 0) {
 						$externalClasses[] = 'right';
 					}
+
+					$target_image = '/img/broken.png';
+					if (!empty($record->target_image)) {
+						$target_image = $record->target_image;
+					}
 				?>
 				<!-- Message. Default to the left -->
 				<div class="direct-chat-msg <?php esc_attr_e( implode(' ', $externalClasses) ); ?>">
@@ -46,7 +51,7 @@
 						<span class="direct-chat-timestamp pull-right"><?php echo $record->fired_time ?></span>
 					</div>
 					<!-- /.direct-chat-info -->
-					<img class="direct-chat-img" src="/img/broken.png" alt="message user image">
+					<img class="direct-chat-img" src="<?php echo $target_image ?>" alt="message user image">
 					<!-- /.direct-chat-img -->
 					<div class="direct-chat-text">
 						<?php echo $record->target_message ?>
