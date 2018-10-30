@@ -14,7 +14,7 @@
 	
 	$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 
-	$histories = $wpdb->get_row( "SELECT * FROM $table_name ORDER BY fired_time DESC LIMIT {$instance['numOfRows']}" );
+	$histories = $wpdb->get_results( "SELECT * FROM $table_name ORDER BY fired_time DESC LIMIT {$instance['numOfRows']}" );
 	var_dump($histories);
 ?>
 
@@ -32,24 +32,26 @@
 	<!-- /.box-header -->
 	<div class="box-body">
 		<!-- Conversations are loaded here -->
-		<div class="direct-chat-messages">
-			<!-- Message. Default to the left -->
-			<div class="direct-chat-msg">
-				<div class="direct-chat-info clearfix">
-					<span class="direct-chat-name pull-left">Alexander Pierce</span>
-					<span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+		<?php foreach ($histories as $key => $record): ?>
+			<div class="direct-chat-messages">
+				<!-- Message. Default to the left -->
+				<div class="direct-chat-msg">
+					<div class="direct-chat-info clearfix">
+						<span class="direct-chat-name pull-left"><?php echo $record->target_name ?></span>
+						<span class="direct-chat-timestamp pull-right"><?php echo $record->fired_time ?></span>
+					</div>
+					<!-- /.direct-chat-info -->
+					<img class="direct-chat-img" src="/img/broken.png" alt="message user image">
+					<!-- /.direct-chat-img -->
+					<div class="direct-chat-text">
+						<?php echo $record->target_message ?>
+					</div>
+					<!-- /.direct-chat-text -->
 				</div>
-				<!-- /.direct-chat-info -->
-				<img class="direct-chat-img" src="/img/broken.png" alt="message user image">
-				<!-- /.direct-chat-img -->
-				<div class="direct-chat-text">
-					Is this template really for free? That's unbelievable!
-				</div>
-				<!-- /.direct-chat-text -->
+				<!-- /.direct-chat-msg -->
 			</div>
-			<!-- /.direct-chat-msg -->
-		</div>
-		<!--/.direct-chat-messages-->
+			<!--/.direct-chat-messages-->			
+		<?php endforeach ?>
 	</div>
 	<!-- /.box-body -->	
 </div>
