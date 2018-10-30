@@ -55,7 +55,7 @@ class Codestar_Lamface_Base {
 		new Codestar_Lamface_Widgets();
 	}
 
-	public function codestar_lamface_save_system_history($target_code) {
+	public function codestar_lamface_save_system_history($target_code, $type) {
 		if (! defined('LF_SYSTEM_HISTORIES')) {
 			// Something wrong
 			return;
@@ -63,13 +63,25 @@ class Codestar_Lamface_Base {
 		
 		global $table_prefix, $wpdb, $current_user;
 		
+		switch ($type) {
+			case 'fanpage':
+				$message = 'Đã lưu page: ';
+				break;
+			case 'content':
+				$message = 'Đã lưu bài viết: ';
+				break;			
+			default:
+				$message = 'Đã lưu bài viết: ';
+				break;
+		}
+
 		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 		$recordData = array(
 			'target_name' => $current_user->get('user_nicename'),
 			'target_code' => (string) $target_code,
 			'target_url' => '#',
 			'target_image' => get_avatar_url( $current_user ),
-			'target_message' => 'NO_MESSAGE',
+			'target_message' => $message,
 		);
 		$wpdb->replace( $table_name, $recordData );
 	}

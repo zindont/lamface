@@ -472,7 +472,7 @@ function bulkff_user() {
 		}
 		/// #END
 
-		do_action('codestar_lamface_save_system_history', $_POST["post_id"]);
+		do_action('codestar_lamface_save_system_history', $_POST["post_id"], 'content');
 	}
 	
 	die();
@@ -525,7 +525,7 @@ function bulkff_save_page() {
 		$key = 2;
 	}
 
-	do_action('codestar_lamface_save_system_history', $feed_id);
+	do_action('codestar_lamface_save_system_history', $feed_id, 'fanpage');
 
 	echo $key;
 	die();
