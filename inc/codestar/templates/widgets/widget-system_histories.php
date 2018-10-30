@@ -15,7 +15,6 @@
 	$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 
 	$histories = $wpdb->get_results( "SELECT * FROM $table_name ORDER BY fired_time DESC LIMIT {$instance['numOfRows']}" );
-	var_dump($histories);
 ?>
 
 <div class="box box-success">
