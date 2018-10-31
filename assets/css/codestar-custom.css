@@ -30,3 +30,6 @@
     /*float: none;
     display: inline;*/
 }
+.filter-zone .select2-container{
+    width: 100% !important;
+}

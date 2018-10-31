@@ -33,12 +33,12 @@
 
 <div class="filter-zone">
     <form id="bulkff_form" class='bulkff_form'>
-        <div class="below">
-            <div class="col-xs-6 col-md-1">BỘ LỌC</div>
-            <div class="col-xs-6 col-md-1">
+        <div class="below row">
+            <div class="col-xs-6 col-md-1 no-padding">BỘ LỌC</div>
+            <div class="col-xs-6 col-md-1 no-padding">
                 <input id="keywords" type="text" placeholder="Từ khóa" />
             </div>
-            <div class="col-xs-6 col-md-1">
+            <div class="col-xs-6 col-md-2">
                 <select id="searh-type" style="width: 100px" class="form-control select2">
                     <option value="">Lọc theo</option>
                     <option value="data-title">Tiêu đề</option>
@@ -79,15 +79,15 @@
                     <option value="1000-10000000">&gt; 1000</option>
                 </select>
             </div>
-            <div class="col-xs-6 col-md-1">
+            <div class="col-xs-6 col-md-1 no-padding">
                 <input id="date" type="text" placeholder="Date" />
             </div>
-            <div class="col-xs-6 col-md-1">
+            <div class="col-xs-6 col-md-1 no-padding">
                 <input type="button" class="bulkff_form_submit" value="Lọc" id="submit-form" />
             </div>
             <div class="clr"></div>
         </div>
-        <div class="after mt5">
+        <div class="after mt5 row">
             <div class="col-xs-6 col-md-2">
                 <select name="tags_search" id="tags-search" class="order-class form-control select2">
                     <option value="" data-icon="fa-home">Xếp sản phẩm</option>

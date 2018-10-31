@@ -587,7 +587,7 @@ footer {
 .clr { clear: both; float: none }
 
 /* #input stype */
-.filter-zone input {
+/*.filter-zone input {
 	border-radius: 5px;
 	border: 0px;
     font-size: 13px;
@@ -607,7 +607,7 @@ button {
 .filter-zone select,
 .filter-zone select option {
 	font-family: FontAwesome, quicksand;
-}
+}*/
 
 .most-like-zone,
 .most-save-zone { 
