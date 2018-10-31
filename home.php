@@ -519,7 +519,7 @@ $table_cat = 'ltt_ff_cate';
 														items:2
 													},
 													1000:{
-														items:3
+														items:4
 													}
 												},
 												navigation : true,
