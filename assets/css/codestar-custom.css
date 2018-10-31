@@ -27,6 +27,6 @@
     text-align: center;
 }
 .filter-zone .bulkff_form .below > div, .filter-zone .bulkff_form .after > div{
-    float: none;
-    display: inline;
+    /*float: none;
+    display: inline;*/
 }
