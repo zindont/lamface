@@ -17,7 +17,16 @@
 
 get_header();
 global $wp_query;
-var_dump($wp_query->query_vars);
+$all_vars = $wp_query->query_vars;
+$current_page = ($all_vars['page'])? $all_vars['page'] : 1;
+$item_per_page = 12;
+$show_from = (($current_page-1)*$item_per_page)+1;
+$show_to = $current_page*$item_per_page;
+$current_url = home_url(add_query_arg(array(),$wp_query->request));
+var_dump($current_url);
+var_dump($current_page);
+var_dump($show_from);
+var_dump($show_to);
 ?>
 
 	<section id="primary" class="content-area content">
@@ -64,6 +73,8 @@ var_dump($wp_query->query_vars);
 													continue;
 												}
 												$uniqe_fps[] = $feed_id;
+												if($show_from>$show_to) continue;
+												$show_from++;
 											?>
 											<li>
 												<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
@@ -73,9 +84,33 @@ var_dump($wp_query->query_vars);
 										<?php endforeach ;?>
 									</ul>
 									<!-- /.users-list -->
+									
+									<div class="pagination-wrap">
+										<ul class="pagination" id="pagination-page"></ul>
+										<div class="pagination-wrap-more">
+											<div class="pagination-text">-- Có tất cả <?php echo (count($uniqe_fps)/12)); ?> trang --</div>
+										</div>
 									</div>
-									<!-- /.box-body -->
+									<!-- /.pagination -->
 								</div>
+								<!-- /.box-body -->
+							</div>
+							<script>
+								jQuery(document).ready(function(){
+									jQuery('#pagination-page').twbsPagination({
+										totalPages: <?php echo (count($uniqe_fps)/12));?>,
+										visiblePages: 3,
+										startPage: <?php echo $current_page;?>,
+										first: '<span class="fa fa-angle-double-left"></span>',
+										prev: '<span class="fa fa-angle-left"></span>',
+										next: '<span class="fa fa-angle-right"></span>',
+										last: '<span class="fa fa-angle-double-right"></span>',
+										onPageClick: function (event, page) {
+											form_update($form, 'pagination-page', page);
+										}
+									});
+								});
+							</script>
 							<?php
 							
 							/*$keyFanPage = array_unique( array_column( $fanPage, 'feed_id' ) );
