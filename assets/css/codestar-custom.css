@@ -43,11 +43,14 @@
 }
 .filter-zone input[type=text]{
     width: 100% !important;
+    text-align: center;
 }
 @media(min-width:989px){
     .no-padd {
         padding: 0 !important;
     }
+}
+@media(max-width:989px){
     .filter-zone .bulkff_form .below > div, .filter-zone .bulkff_form .after > div{
         margin-top: 5px;
     }
