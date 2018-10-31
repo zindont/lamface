@@ -33,3 +33,11 @@
 .filter-zone .select2-container{
     width: 100% !important;
 }
+.filter-zone input[type=text]{
+    width: 100% !important;
+}
+@media(min-width:990px){
+    .no-padd {
+        padding: 0 !important;
+    }
+}

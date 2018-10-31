@@ -34,8 +34,8 @@
 <div class="filter-zone">
     <form id="bulkff_form" class='bulkff_form'>
         <div class="below row">
-            <div class="col-xs-6 col-md-1 no-padding">BỘ LỌC</div>
-            <div class="col-xs-6 col-md-1 no-padding">
+            <div class="col-xs-6 col-md-1 no-padd">BỘ LỌC</div>
+            <div class="col-xs-6 col-md-1 no-padd">
                 <input id="keywords" type="text" placeholder="Từ khóa" />
             </div>
             <div class="col-xs-6 col-md-2">
@@ -79,10 +79,10 @@
                     <option value="1000-10000000">&gt; 1000</option>
                 </select>
             </div>
-            <div class="col-xs-6 col-md-1 no-padding">
+            <div class="col-xs-6 col-md-1 no-padd">
                 <input id="date" type="text" placeholder="Date" />
             </div>
-            <div class="col-xs-6 col-md-1 no-padding">
+            <div class="col-xs-6 col-md-1 no-padd">
                 <input type="button" class="bulkff_form_submit" value="Lọc" id="submit-form" />
             </div>
             <div class="clr"></div>
