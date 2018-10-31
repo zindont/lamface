@@ -22,7 +22,7 @@ class Codestar_Lamface_System_History {
 				$message = 'Đã lưu page: <strong>' . $this->getFanPageNameById($target_code, $cat) . '</strong>';
 				break;
 			case 'content':
-				$message = 'Đã lưu bài viết: ';
+				$message = 'Đã lưu bài viết: <strong>' . $this->getPostTitleById($target_code, $cat) . '</strong>';
 				break;			
 			default:
 				$message = 'Đã lưu bài viết: ';
@@ -48,4 +48,13 @@ class Codestar_Lamface_System_History {
 
 		return $rowObject->post_header;
 	}
+
+	private function getPostTitleById($post_id, $cat) {
+		global $wpdb;
+		
+		$post_table = 'ltt_ff_posts_' . $cat;
+		$rowObject = $wpdb->get_row( "SELECT * FROM {$post_table} WHERE post_id = '{$post_id}'" );
+
+		return $rowObject->post_header;
+	}	
 }
