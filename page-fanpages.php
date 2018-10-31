@@ -98,7 +98,7 @@ var_dump($show_to);
 							<script>
 								jQuery(document).ready(function(){
 									jQuery('#pagination-page').twbsPagination({
-										totalPages: <?php echo (count($uniqe_fps)/12));?>,
+										totalPages: <?php echo (count($uniqe_fps)/12);?>,
 										visiblePages: 3,
 										startPage: <?php echo $current_page;?>,
 										first: '<span class="fa fa-angle-double-left"></span>',
