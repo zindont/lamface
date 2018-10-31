@@ -76,6 +76,7 @@
 
 .mansory-grid .item-featured .desc {
     max-height: 200px;
+    height: auto;
 }
 @media(min-width:989px){
     .no-padd {
