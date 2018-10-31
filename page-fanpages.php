@@ -101,8 +101,8 @@ $count = 1;
 											next: '<span class="fa fa-angle-right"></span>',
 											last: '<span class="fa fa-angle-double-right"></span>',
 											onPageClick: function (event, page) {
-												var url = '<?php echo get_permalink().$current_page.'/';?>';
-												window.location = url;
+												// var url = '<?php echo get_permalink();?>'+page+'/';
+												// window.location = url;
 											}
 										});
 									});
