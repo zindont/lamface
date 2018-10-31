@@ -78,7 +78,7 @@ function initMansory() {
 }
 
 function initExpands() {
-	jQuery.each(jQuery('.mansory-grid .desc, .owl-item .desc'), function(key, value) {
+	jQuery.each(jQuery('.mansory-grid .desc, .owl-carousel .desc'), function(key, value) {
 		if (jQuery(this).height() > 120) {
 			jQuery(this).attr('style', 'height:120px !important; overflow-y:hidden !important');
 			jQuery(this).parent().find('.click-expanding').show();
