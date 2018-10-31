@@ -45,7 +45,7 @@ class Codestar_Lamface_System_History {
 		
 		$post_table = 'ltt_ff_posts_' . $cat;
 		$rowObject = $wpdb->get_row( "SELECT * FROM {$post_table} WHERE 'feed_id' = {$page_id}" );
-		
+		var_dump($rowObject);
 		return $rowObject->post_header;
 	}
 }
