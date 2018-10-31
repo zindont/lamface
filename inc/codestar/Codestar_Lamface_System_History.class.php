@@ -11,7 +11,7 @@ class Codestar_Lamface_System_History {
 			return;
 		}
 
-		add_action( 'codestar_lamface_save_system_history', array($this, 'codestar_lamface_save_system_history'), 10, 2 );
+		add_action( 'codestar_lamface_save_system_history', array($this, 'codestar_lamface_save_system_history'), 10, 3 );
 	}
 
 	public function codestar_lamface_save_system_history($target_code, $type, $cat) {
