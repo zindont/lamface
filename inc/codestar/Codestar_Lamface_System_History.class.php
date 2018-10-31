@@ -41,12 +41,13 @@ class Codestar_Lamface_System_History {
 	}
 
 	private function getFanPageNameById($page_id, $cat) {
-		global $table_prefix, $wpdb, $current_user;
+		global $wpdb;
 		
 		$post_table = 'ltt_ff_posts_' . $cat;
 		$rowObject = $wpdb->get_row( "SELECT * FROM {$post_table} WHERE 'feed_id' = {$page_id}" );
 		var_dump($cat);
 		var_dump($rowObject);
+		var_dump("SELECT * FROM {$post_table} WHERE 'feed_id' = {$page_id}");
 		return $rowObject->post_header;
 	}
 }
