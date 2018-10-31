@@ -21,7 +21,7 @@
                 <input id="keywords" type="text" placeholder="Từ khóa" />
             </div>
             <div class="filter-select fl mr5">
-                <select id="searh-type" style="width: 100px">
+                <select id="searh-type" style="width: 100px" class="form-control select2">
                     <option value="">Lọc theo</option>
                     <option value="data-title">Tiêu đề</option>
                     <option value="data-facebook-name">Tên facebook</option>
@@ -29,7 +29,7 @@
                 </select>
             </div>
             <div class="filter-select fl mr5">
-                <select class="likes" name="likes" style="width: 70px">
+                <select class="likes" name="likes" style="width: 70px" class="form-control select2">
                     <option value="">Like</option>
                     <option value="0-20">&lt; 20</option>
                     <option value="21-50">21- 50</option>
@@ -40,7 +40,7 @@
                 </select>
             </div>
             <div class="filter-select fl mr5">
-                <select class="comments" name="comments">
+                <select class="comments" name="comments" class="form-control select2">
                     <option value="">Comment</option>
                     <option value="0-20">&lt; 20</option>
                     <option value="21-50">21- 50</option>
@@ -51,7 +51,7 @@
                 </select>
             </div>
             <div class="filter-select fl mr5">
-                <select class="small" name="share">
+                <select class="small" name="share" class="form-control select2">
                     <option value="">Share</option>
                     <option value="0-20">&lt; 20</option>
                     <option value="21-50">21- 50</option>
@@ -71,7 +71,7 @@
         </div>
         <div class="after mt5">
             <div class="filter-select fl mr5">
-                <select name="tags_search" id="tags-search" class="order-class">
+                <select name="tags_search" id="tags-search" class="order-class form-control select2">
                     <option value="""> Xếp sản phẩm</option>
                     <option value="Áo nỉ">• Áo nỉ</option>
                     <option value="Áo len">• Áo len</option>
@@ -79,7 +79,7 @@
                 </select>
             </div>
             <div class="filter-select fl mr5">
-                <select name="likes_count" id="likes-count" class="order-class">
+                <select name="likes_count" id="likes-count" class="order-class form-control select2">
                     <option value=""> Xếp like</option>
                     <option value="1">• Tăng dần</option>
                     <option value="2">• Giảm dần</option>
@@ -87,7 +87,7 @@
                 </select>
             </div>
             <div class="filter-select fl mr5">
-                <select name="comments_count" id="comments-count" class="order-class">
+                <select name="comments_count" id="comments-count" class="order-class form-control select2">
                     <option value=""> Xếp comment</option>
                     <option value="1">• Tăng dần</option>
                     <option value="2">• Giảm dần</option>
@@ -95,7 +95,7 @@
                 </select>
             </div>
             <div class="filter-select fl mr5">
-                <select name="shares_count" id="share-count" class="order-class">
+                <select name="shares_count" id="share-count" class="order-class form-control select2">
                     <option value=""> Xếp share</option>
                     <option value="1">• Tăng dần</option>
                     <option value="2">• Giảm dần</option>
@@ -103,7 +103,7 @@
                 </select>
             </div>
             <div class="filter-select fl mr5">
-                <select name="words_count" id="words-count" class="order-class">
+                <select name="words_count" id="words-count" class="order-class form-control select2">
                     <option value=""> Số từ</option>
                     <option value="1">• &lt; 20</option>
                     <option value="2">• 20 - 50</option>
@@ -113,7 +113,7 @@
                 </select>
             </div>
             <div class="filter-select fl mr5">
-                <select name="interactions_count" id="interactions-count" class="order-class">
+                <select name="interactions_count" id="interactions-count" class="order-class form-control select2">
                     <option value=""> Tương tác</option>
                     <option value="1">• Lưu nhiều nhất</option>
                     <option value="2">• Xem nhiều nhất</option>
