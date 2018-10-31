@@ -79,8 +79,8 @@ function initMansory() {
 
 function initExpands() {
 	jQuery.each(jQuery('.mansory-grid .desc'), function(key, value) {
-		if (jQuery(this).height() > 300) {
-			jQuery(this).attr('style', 'height:300px !important; overflow-y:hidden !important');
+		if (jQuery(this).height() > 100) {
+			jQuery(this).attr('style', 'height:100px !important; overflow-y:hidden !important');
 			jQuery(this).parent().find('.click-expanding').show();
 		}
 	});
@@ -91,9 +91,15 @@ jQuery(".order-class").change(function (e) {
 });
 
 function descExpanding(id) {
-	console.log('click on ' + id + ' has been raised');
 	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: auto !important; overflow-y: none !important');
 	jQuery('#' + jQuery.trim(id) + ' .click-expanding').hide();
+	jQuery('#' + jQuery.trim(id) + ' .click-contracting').show();
+}
+
+function descContracting(id) {
+	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: 100px !important; overflow-y: hidden !important');
+	jQuery('#' + jQuery.trim(id) + ' .click-contracting').hide();
+	jQuery('#' + jQuery.trim(id) + ' .click-expanding').show();
 }
 
 // Initial config for setting up modals
