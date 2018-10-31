@@ -5,7 +5,7 @@
 <script src="<?php echo BULKFF_ASSETS; ?>/js/isotope.pkgd.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory() ; ?>/assets/js/select2.full.min.js"></script>
 <script type="text/javascript">
-    jQuery(document).ready(function () {
+    jQuery(document).ready(function ($) {
         $('.select2').select2();
     });
 </script>
