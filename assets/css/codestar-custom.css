@@ -78,6 +78,9 @@
     max-height: 200px;
     height: auto;
 }
+.home .mansory-grid .item-featured {
+    width: calc(33% - 1em);
+}
 @media(min-width:989px){
     .no-padd {
         padding: 0 !important;
