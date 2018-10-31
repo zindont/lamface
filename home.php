@@ -393,7 +393,7 @@ $table_cat = 'ltt_ff_cate';
 										if ( count( $arr) == 0 ):
 											$arr = array();
 										else:?>
-											<div class="most-save-zone owl-carousel owl-theme col-xs-12 col-sm-10 col-sm-offset-1">
+											<div class="most-save-zone owl-carousel owl-theme">
 												<?php foreach( $arr as $key => $it):
 													if($key>12) continue;
 													// $additional = json_decode( $item->post_additional'] );
