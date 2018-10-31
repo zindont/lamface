@@ -172,7 +172,7 @@ $count = 0;
 					<div class="pagination-wrap">
 						<ul class="pagination" id="pagination-page"></ul>
 						<div class="pagination-wrap-more">
-							<div class="pagination-text">-- Có tất cả <?php echo ceil(count($saved_pages_ids)/12); ?> trang --</div>
+							<div class="pagination-text">-- Có tất cả <?php echo ceil(count($arr)/12); ?> trang --</div>
 						</div>
 					</div>
 					<!-- /.pagination -->
@@ -181,7 +181,7 @@ $count = 0;
 				<script>
 					jQuery(document).ready(function(){
 						jQuery('#pagination-page').twbsPagination({
-							totalPages: <?php echo ceil(count($saved_pages_ids)/12);?>,
+							totalPages: <?php echo ceil(count($arr)/12);?>,
 							visiblePages: 3,
 							startPage: <?php echo $current_page;?>,
 							first: '<span class="fa fa-angle-double-left"></span>',
