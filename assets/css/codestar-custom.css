@@ -30,14 +30,25 @@
     /*float: none;
     display: inline;*/
 }
+.filter-zone .bulkff_form .bl{
+    height: 28px;
+    line-height: 28px;
+}
+.filter-zone .bulkff_form .bulkff_form_submit{
+    height: 28px;
+}
+
 .filter-zone .select2-container{
     width: 100% !important;
 }
 .filter-zone input[type=text]{
     width: 100% !important;
 }
-@media(min-width:990px){
+@media(min-width:989px){
     .no-padd {
         padding: 0 !important;
+    }
+    .filter-zone .bulkff_form .below > div, .filter-zone .bulkff_form .after > div{
+        margin-top: 5px;
     }
 }

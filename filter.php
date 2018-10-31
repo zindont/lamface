@@ -34,7 +34,7 @@
 <div class="filter-zone">
     <form id="bulkff_form" class='bulkff_form'>
         <div class="below row">
-            <div class="col-xs-6 col-md-1 no-padd">BỘ LỌC</div>
+            <div class="col-xs-6 col-md-1 no-padd lb">BỘ LỌC</div>
             <div class="col-xs-6 col-md-1 no-padd">
                 <input id="keywords" type="text" placeholder="Từ khóa" />
             </div>
