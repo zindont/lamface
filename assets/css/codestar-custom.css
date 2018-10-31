@@ -81,6 +81,9 @@
 .home .mansory-grid .item-featured, .home .grid-sizer {
     width: calc(33% - 1em);
 }
+.home .owl-carousel .owl-item img{
+    height: auto;
+}
 @media(min-width:989px){
     .no-padd {
         padding: 0 !important;
