@@ -7,7 +7,15 @@
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri() ; ?>/assets/css/select2.min.css">
 <script type="text/javascript">
     jQuery(document).ready(function () {
-        jQuery('.select2').select2();
+        function iformat(icon) {
+            var originalOption = icon.element;
+            return jQuery('<span><i class="fa ' + jQuery(originalOption).data('icon') + '"></i> ' + icon.text + '</span>');
+        }
+        jQuery('.select2').select2({
+            templateSelection: iformat,
+            templateResult: iformat,
+            allowHtml: true
+        });
     });
 </script>
 <?php
@@ -35,7 +43,7 @@
                 </select>
             </div>
             <div class="col-xs-6 col-md-1">
-                <select class="likes" name="likes" style="width: 70px" class="form-control select2">
+                <select class="likes form-control select2" name="likes" style="width: 70px">
                     <option value="">Like</option>
                     <option value="0-20">&lt; 20</option>
                     <option value="21-50">21- 50</option>
@@ -46,7 +54,7 @@
                 </select>
             </div>
             <div class="col-xs-6 col-md-1">
-                <select class="comments" name="comments" class="form-control select2">
+                <select class="comments form-control select2" name="comments" class="form-control select2">
                     <option value="">Comment</option>
                     <option value="0-20">&lt; 20</option>
                     <option value="21-50">21- 50</option>
@@ -57,7 +65,7 @@
                 </select>
             </div>
             <div class="col-xs-6 col-md-1">
-                <select class="small" name="share" class="form-control select2">
+                <select class="small form-control select2" name="share" class="form-control select2">
                     <option value="">Share</option>
                     <option value="0-20">&lt; 20</option>
                     <option value="21-50">21- 50</option>
@@ -78,7 +86,7 @@
         <div class="after mt5">
             <div class="col-xs-6 col-md-2">
                 <select name="tags_search" id="tags-search" class="order-class form-control select2">
-                    <option value="""> Xếp sản phẩm</option>
+                    <option value="" data-icon="fa-home">Xếp sản phẩm</option>
                     <option value="Áo nỉ">• Áo nỉ</option>
                     <option value="Áo len">• Áo len</option>
                     <option value="Áo lạnh">• Áo lạnh</option>
@@ -86,7 +94,7 @@
             </div>
             <div class="col-xs-6 col-md-2">
                 <select name="likes_count" id="likes-count" class="order-class form-control select2">
-                    <option value=""> Xếp like</option>
+                    <option value="" data-icon="fa-thumbs-up">Xếp like</option>
                     <option value="1">• Tăng dần</option>
                     <option value="2">• Giảm dần</option>
                     <option value="3">• Ngẫu nhiên</option>
@@ -94,7 +102,7 @@
             </div>
             <div class="col-xs-6 col-md-2">
                 <select name="comments_count" id="comments-count" class="order-class form-control select2">
-                    <option value=""> Xếp comment</option>
+                    <option value="" data-icon="fa-comments">Xếp comment</option>
                     <option value="1">• Tăng dần</option>
                     <option value="2">• Giảm dần</option>
                     <option value="3">• Ngẫu nhiên</option>
@@ -102,7 +110,7 @@
             </div>
             <div class="col-xs-6 col-md-2">
                 <select name="shares_count" id="share-count" class="order-class form-control select2">
-                    <option value=""> Xếp share</option>
+                    <option value="" data-icon="fa-share">Xếp share</option>
                     <option value="1">• Tăng dần</option>
                     <option value="2">• Giảm dần</option>
                     <option value="3">• Ngẫu nhiên</option>
@@ -110,7 +118,7 @@
             </div>
             <div class="col-xs-6 col-md-2">
                 <select name="words_count" id="words-count" class="order-class form-control select2">
-                    <option value=""> Số từ</option>
+                    <option value="" data-icon="fa-file-alt">Số từ</option>
                     <option value="1">• &lt; 20</option>
                     <option value="2">• 20 - 50</option>
                     <option value="3">• 50 - 100</option>
@@ -120,7 +128,7 @@
             </div>
             <div class="col-xs-6 col-md-2">
                 <select name="interactions_count" id="interactions-count" class="order-class form-control select2">
-                    <option value=""> Tương tác</option>
+                    <option value="" data-icon="fa-users">Tương tác</option>
                     <option value="1">• Lưu nhiều nhất</option>
                     <option value="2">• Xem nhiều nhất</option>
                 </select>
