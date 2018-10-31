@@ -9,7 +9,11 @@
     jQuery(document).ready(function () {
         function iformat(icon) {
             var originalOption = icon.element;
-            return jQuery('<span><i class="fa ' + jQuery(originalOption).data('icon') + '"></i> ' + icon.text + '</span>');
+            if(jQuery(originalOption).data('icon')){
+                return jQuery('<span><i class="fa ' + jQuery(originalOption).data('icon') + '"></i> ' + icon.text + '</span>');
+            }else{
+                return jQuery('<span>' + icon.text + '</span>');
+            }
         }
         jQuery('.select2').select2({
             templateSelection: iformat,
@@ -31,7 +35,7 @@
     <form id="bulkff_form" class='bulkff_form'>
         <div class="below">
             <div class="col-xs-6 col-md-1">BỘ LỌC</div>
-            <div class="col-xs-6 col-md-2">
+            <div class="col-xs-6 col-md-1">
                 <input id="keywords" type="text" placeholder="Từ khóa" />
             </div>
             <div class="col-xs-6 col-md-1">
@@ -42,7 +46,7 @@
                     <option value="data-content">Nội dung</option>
                 </select>
             </div>
-            <div class="col-xs-6 col-md-1">
+            <div class="col-xs-6 col-md-2">
                 <select class="likes form-control select2" name="likes" style="width: 70px">
                     <option value="">Like</option>
                     <option value="0-20">&lt; 20</option>
@@ -53,7 +57,7 @@
                     <option value="1000-10000000">&gt; 1000</option>
                 </select>
             </div>
-            <div class="col-xs-6 col-md-1">
+            <div class="col-xs-6 col-md-2">
                 <select class="comments form-control select2" name="comments" class="form-control select2">
                     <option value="">Comment</option>
                     <option value="0-20">&lt; 20</option>
@@ -64,7 +68,7 @@
                     <option value="1000-10000000">&gt; 1000</option>
                 </select>
             </div>
-            <div class="col-xs-6 col-md-1">
+            <div class="col-xs-6 col-md-2">
                 <select class="small form-control select2" name="share" class="form-control select2">
                     <option value="">Share</option>
                     <option value="0-20">&lt; 20</option>
@@ -75,7 +79,7 @@
                     <option value="1000-10000000">&gt; 1000</option>
                 </select>
             </div>
-            <div class="col-xs-6 col-md-2">
+            <div class="col-xs-6 col-md-1">
                 <input id="date" type="text" placeholder="Date" />
             </div>
             <div class="col-xs-6 col-md-1">

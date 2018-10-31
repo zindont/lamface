@@ -959,13 +959,13 @@ button {
 	font-size: 12px !important;
 	padding: 5px 10px
 }
-.select2-container--default .select2-selection--single .select2-selection__rendered {
+/*.select2-container--default .select2-selection--single .select2-selection__rendered {
 	font-size: 12px;
 	padding: 5px 10px
 }
 .select2-container .select2-selection--single {
 	height: 38px !important
-}
+}*/
 
 /* #user Tabs */
 .user-tabs {
