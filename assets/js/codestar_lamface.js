@@ -79,8 +79,8 @@ function initMansory() {
 
 function initExpands() {
 	jQuery.each(jQuery('.mansory-grid .desc, .owl-item .desc'), function(key, value) {
-		if (jQuery(this).height() > 100) {
-			jQuery(this).attr('style', 'height:100px !important; overflow-y:hidden !important');
+		if (jQuery(this).height() > 120) {
+			jQuery(this).attr('style', 'height:120px !important; overflow-y:hidden !important');
 			jQuery(this).parent().find('.click-expanding').show();
 		}
 	});
@@ -97,7 +97,7 @@ function descExpanding(id) {
 }
 
 function descContracting(id) {
-	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: 100px !important; overflow-y: hidden !important');
+	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: 120px !important; overflow-y: hidden !important');
 	jQuery('#' + jQuery.trim(id) + ' .click-contracting').hide();
 	jQuery('#' + jQuery.trim(id) + ' .click-expanding').show();
 }
