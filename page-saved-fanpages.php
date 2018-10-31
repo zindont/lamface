@@ -16,26 +16,33 @@
  */
 
 get_header();
+global $wp_query;
+$all_vars = $wp_query->query_vars;
+$current_page = ($all_vars['page'])? $all_vars['page'] : 1;
+$item_per_page = 12;
+$show_from = (($current_page-1)*$item_per_page)+1;
+$show_to = $current_page*$item_per_page;
+$count = 0;
 ?>
+<script type="text/javascript" src="<?php echo get_template_directory_uri().'/bulkff/assets/js/jquery.twbsPagination.min.js';?>"></script>
 
 	<section id="primary" class="content-area content">
 		<div class="box box-default">
-            <div class="box-header with-border content-header">
-				<?php while ( have_posts() ) :?>
-				<?php the_post();?>
-				<?php 
-					the_title( '<h1 class="entry-title">', '</h1>' );
-					// Breadcrumb
-					do_action( 'codestar_breadcrumbs' );
-				?>
-				<?php endwhile; // End of the loop.?>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-				<div class="row">
-					<main id="main" class="site-main col-xs-12">
-						<?php //showSavePosts() ?>
-						<?php 
+			<?php while ( have_posts() ) :?>
+				<div class="box-header with-border content-header">
+					<?php the_post();?>
+					<?php 
+						the_title( '<h1 class="entry-title">', '</h1>' );
+						// Breadcrumb
+						do_action( 'codestar_breadcrumbs' );
+					?>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+						<main id="main" class="site-main col-xs-12">
+							<?php //showSavePosts() ?>
+							<?php 
 							$user_id = get_current_user_id();
 							global $wpdb;
 							$table_post = 'ltt_ff_posts_';
@@ -74,6 +81,8 @@ get_header();
 												if(!in_array($feed_id,$saved_pages_ids)){
 													continue;
 												}
+												$count++;
+												if($count<$show_from || $count>$show_to) continue;
 											?>
 											<li>
 												<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
@@ -83,89 +92,40 @@ get_header();
 										<?php endforeach ;?>
 									</ul>
 									<!-- /.users-list -->
+										
+									<div class="pagination-wrap">
+										<ul class="pagination" id="pagination-page"></ul>
+										<div class="pagination-wrap-more">
+											<div class="pagination-text">-- Có tất cả <?php echo ceil(count($saved_pages_ids)/12); ?> trang --</div>
+										</div>
 									</div>
-									<!-- /.box-body -->
+									<!-- /.pagination -->
 								</div>
-							<?php
-							
-							/*$keyFanPage = array_unique( array_column( $fanPage, 'feed_id' ) );
-							$l          = 0;
-							foreach ( $fanPage as $r ) {
-								if ( in_array( $l, array_keys( $keyFanPage ) ) ) {
-									?>
-									<div class="shop">
-										<?php
-										if ( is_user_login() ) {
-											?>
-											<a class="bulkff_save_page" onclick="bulkff_save_page(this,'<?php echo trim($r['feed_id']); ?>', <?php echo $cat; ?>);return false;">
-												<?php
-												if ( in_array( $r['feed_id'], $meta_page ) ) {
-													echo "Đã lưu page";
-												} else {
-													echo "Lưu page";
-												}
-												?>
-											</a>
-											<?php
-										}
-										?>
-										<a target="_blank" href="<?php echo $r['user_link']; ?>" class="img get_posts_page" data-id="<?php echo $r['feed_id']; ?>">
-											<img src="<?php echo $r['user_pic']; ?>" alt="<?php echo $r['user_screenname']; ?>">
-										</a>
-										<div class="shortInfo <?php echo ! empty( $feed_id_post ) && $feed_id_post == $r['feed_id'] ? 'active' : ''; ?>">
-											<a target="_blank" href="<?php echo $r['user_link']; ?>" class="get_posts_page" data-id="<?php echo $r['feed_id']; ?>"><?php echo $r['user_screenname']; ?></a>
-											<p> <?php echo codestar_api_get_posts_total($cat,$r['feed_id'])?> Contents</p>
-										</div>
-										<div class="clr"></div>
-									</div>
-									<?php
-								}
-								$l ++;
-							}*/
-						?>
-
-
-						<?php
-						/*global $db;
-						$id              = (int) $_POST['user'];
-						$feed_id_post    = (int) $_POST['feed_id'];
-						$cat             = $_POST['cat'];
-						$table_name_post = TABLE_POST . $_POST['cat'];
-						if ( is_user_login() ) {
-							$bulkff_meta_page = api_get_user_meta( '_bulk_page' );
-							$meta_page        = array();
-							if ( $bulkff_meta_page ) {
-								$pageArray = unserialize( maybe_unserialize( $bulkff_meta_page ) );
-								$meta_page = $pageArray[ $cat ];
-							}
-							//var_dump($table_name_post);
-							
-							foreach ( $meta_page as $link ) {
-								$r = $db->execSQL( "SELECT feed_id,user_screenname,user_pic,user_link FROM $table_name_post WHERE feed_id = '$link' LIMIT 0,1",
-									0, 3600 );
-								if ( count( $r ) > 0 ) {
-									$r = $r[0];
-									//$countPosts = $db->execSQL( "SELECT COUNT(*) FROM $table_name_post WHERE feed_id=$r['feed_id']");
-									?>
-									<div class="shop">
-										<a class="bulkff_save_page" onclick="bulkff_save_page(this,'<?php echo trim($r['feed_id']); ?>', <?php echo $cat; ?> );return false;">Đã Lưu page</a>
-										<a target="_blank" href="<?php echo $r['user_link']; ?>" class="img get_posts_page" data-id="<?php echo $r['feed_id']; ?>">
-											<img src="<?php echo $r['user_pic']; ?>"> </a>
-										<div class="shortInfo <?php echo ! empty( $feed_id_post ) && $feed_id_post == $r['feed_id'] ? 'active' : ''; ?>">
-											<a target="_blank" href="javascript:;" class="get_posts_page" data-id="<?php echo $r['feed_id']; ?>"><?php echo $r['user_screenname']; ?></a>
-											<p><?php //echo $cat.'--'.$r['feed_id'].'---'.get_value_exec_sql($countPosts);
-											echo codestar_api_get_posts_total($cat,$r['feed_id']);?> Contents</p>
-										</div>
-										<div class="clr"></div>
-									</div>
-									<?php
-								}
-							}
-						} */ ?>
-					</main><!-- #main -->
-				</row>
-            </div>
-            <!-- /.box-body -->
+								<!-- /.box-body -->
+								<script>
+									jQuery(document).ready(function(){
+										jQuery('#pagination-page').twbsPagination({
+											totalPages: <?php echo ceil(count($saved_pages_ids)/12);?>,
+											visiblePages: 3,
+											startPage: <?php echo $current_page;?>,
+											first: '<span class="fa fa-angle-double-left"></span>',
+											prev: '<span class="fa fa-angle-left"></span>',
+											next: '<span class="fa fa-angle-right"></span>',
+											last: '<span class="fa fa-angle-double-right"></span>',
+											initiateStartPageClick: false,
+											onPageClick: function (event, page) {
+												var url = '<?php echo get_permalink();?>'+page+'/';
+												window.location = url;
+											}
+										});
+									});
+								</script>
+							</div>
+						</main><!-- #main -->
+					</row>
+				</div>
+				<!-- /.box-body -->
+			<?php endwhile; // End of the loop.?>
 		</div>
 		<!-- /.box -->
 	</section><!-- #primary -->
