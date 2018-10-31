@@ -22,7 +22,7 @@ $current_page = ($all_vars['page'])? $all_vars['page'] : 1;
 $item_per_page = 12;
 $show_from = (($current_page-1)*$item_per_page)+1;
 $show_to = $current_page*$item_per_page;
-$count = 1;
+$count = 0;
 ?>
 <script type="text/javascript" src="<?php echo get_template_directory_uri().'/bulkff/assets/js/jquery.twbsPagination.min.js';?>"></script>
 	<section id="primary" class="content-area content">
