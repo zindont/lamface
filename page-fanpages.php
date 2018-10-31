@@ -68,8 +68,8 @@ $count = 1;
 														continue;
 													}
 													$uniqe_fps[] = $feed_id;
-													if($count<$show_from || $count>$show_to) continue;
 													$count++;
+													if($count<$show_from || $count>$show_to) continue;
 												?>
 												<li>
 													<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
@@ -100,9 +100,10 @@ $count = 1;
 											prev: '<span class="fa fa-angle-left"></span>',
 											next: '<span class="fa fa-angle-right"></span>',
 											last: '<span class="fa fa-angle-double-right"></span>',
+											initiateStartPageClick: false,
 											onPageClick: function (event, page) {
-												// var url = '<?php echo get_permalink();?>'+page+'/';
-												// window.location = url;
+												var url = '<?php echo get_permalink();?>'+page+'/';
+												window.location = url;
 											}
 										});
 									});
