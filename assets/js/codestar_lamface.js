@@ -91,7 +91,7 @@ jQuery(".order-class").change(function (e) {
 });
 
 function descExpanding(id) {
-	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: 200px !important; overflow-y: none !important');
+	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: 200px !important; overflow-y: auto !important');
 	jQuery('#' + jQuery.trim(id) + ' .click-expanding').hide();
 	jQuery('#' + jQuery.trim(id) + ' .click-contracting').show();
 }

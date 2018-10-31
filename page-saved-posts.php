@@ -100,6 +100,10 @@ get_header();
 											<div class="breaker"></div>
 											<div class="inner"><i class="fa fa-plus"></i> Mở rộng</div>
 										</div>
+										<div class="click-contracting" onclick="javascript:descContracting('<?php echo $item->post_id; ?>')">
+											<div class="breaker"></div>
+											<div class="inner"><i class="fa fa-minus"></i> Thu gọn</div>
+										</div>
 										<div class="meta-wrap">
 											<ul class="meta">
 												<?php
