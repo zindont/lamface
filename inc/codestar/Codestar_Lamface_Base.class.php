@@ -12,6 +12,7 @@ class Codestar_Lamface_Base {
 		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Cron.class.php';
 		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Theme_Activation.class.php';
 		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Widgets.class.php';
+		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_System_History.class.php';
 
 		// Filter
 		add_filter( 'body_class', array($this, 'codestar_lamface_body_classes') );
@@ -19,7 +20,6 @@ class Codestar_Lamface_Base {
 		// Actions
 		add_action( 'codestar_breadcrumbs', array($this, 'codestar_lamface_print_breadcrumbs'), 10, 1 );
 		add_action( 'after_setup_theme', array($this, 'codestar_lamface_firstly_hooks'), 30, 1 );
-		add_action( 'codestar_lamface_save_system_history', array($this, 'codestar_lamface_save_system_history'), 10, 2 );
 		add_action( 'widgets_init', array($this, 'codestar_lamface_widgets_init'), 10 );
 	}
 
@@ -49,41 +49,11 @@ class Codestar_Lamface_Base {
 	 */
 	public function codestar_lamface_firstly_hooks() {
 		new Codestar_Lamface_Theme_Activation();
+		new Codestar_Lamface_System_History();
 	}
 
 	public function codestar_lamface_widgets_init()	{
 		new Codestar_Lamface_Widgets();
-	}
-
-	public function codestar_lamface_save_system_history($target_code, $type) {
-		if (! defined('LF_SYSTEM_HISTORIES')) {
-			// Something wrong
-			return;
-		}
-		
-		global $table_prefix, $wpdb, $current_user;
-		
-		switch ($type) {
-			case 'fanpage':
-				$message = 'Đã lưu page: ';
-				break;
-			case 'content':
-				$message = 'Đã lưu bài viết: ';
-				break;			
-			default:
-				$message = 'Đã lưu bài viết: ';
-				break;
-		}
-
-		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
-		$recordData = array(
-			'target_name' => $current_user->get('user_nicename'),
-			'target_code' => (string) $target_code,
-			'target_url' => '#',
-			'target_image' => get_avatar_url( $current_user ),
-			'target_message' => $message,
-		);
-		$wpdb->replace( $table_name, $recordData );
 	}
 
 	// get total contents
