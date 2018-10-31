@@ -78,7 +78,7 @@
     max-height: 200px;
     height: auto;
 }
-.home .mansory-grid .item-featured {
+.home .mansory-grid .item-featured, .home .grid-sizer {
     width: calc(33% - 1em);
 }
 @media(min-width:989px){
