@@ -16,6 +16,8 @@
  */
 
 get_header();
+global $wp_query;
+var_dump($wp_query->query_vars);
 ?>
 
 	<section id="primary" class="content-area content">
