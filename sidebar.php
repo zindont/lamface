@@ -15,7 +15,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 <div class="user-tabs">
 </div>
 
-<div class="online-users">
+<div class="online-users hidden">
 </div>
 
 <aside id="secondary" class="widget-area">
