@@ -873,7 +873,7 @@ button {
 }
 /* ------- #modal ---------- */
 .modal__content .slider {
-	margin-top: -86px;
+	/* margin-top: -86px; */
 }
 .modal__content .slider .owl-prev,
 .modal__content .slider .owl-next {

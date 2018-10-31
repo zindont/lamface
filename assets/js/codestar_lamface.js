@@ -118,7 +118,7 @@ function clickToShow(id) {
 	});
 	slider += '</div>'
 
-	jQuery('#modal-default .modal__title').html(jQuery('#' + id + ' .title').html());
+	jQuery('#modal-default .modal__title').html(jQuery('#' + id + ' .shortInfo a').html());
 	jQuery('#modal-default .modal__content').html('<img width="100%" src="' + jQuery('#' + id + ' .avatar img').attr('src') + '" />' + slider + '<div class="clr">&nbsp;</div>' + jQuery('#' + id + ' .desc').html());
 	
 	jQuery('#modal-default .owl-carousel').owlCarousel({
