@@ -374,10 +374,6 @@ footer {
 	margin-bottom: 15px;
   	float: left;
 }
-.mansory-grid .item-featured .desc {
-	height: auto !important;
-	overflow: auto !important
-}
 
 .post-thumbnail img {
 	border-radius: 12px;

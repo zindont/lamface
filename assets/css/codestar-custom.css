@@ -73,6 +73,10 @@
     top: 10px;
     z-index: 0;
 }
+
+.mansory-grid .item-featured .desc {
+    max-height: 200px;
+}
 @media(min-width:989px){
     .no-padd {
         padding: 0 !important;
