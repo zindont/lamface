@@ -270,8 +270,12 @@ function lf_get_item_post_short( $data, $cat ) {
                     <div class="clr">&nbsp;</div>
                     <div class="bottom" onclick="clickToShow('<?php echo $item['post_id']; ?>');return false;">
                         <div class="shop">
-                            <a href="<?php echo $item['user_link']; ?>" class="img" target="_blank">
-                                <img src="<?php echo $item['user_pic']; ?>" alt="<?php echo $item['user_screenname']; ?>">
+							<a href="<?php echo $item['user_link']; ?>" class="img" target="_blank">
+								<?php 
+									$idFace = explode( '.com/', $item['user_link'] );
+									$image  = "http://graph.facebook.com/" . trim( $idFace['1'] ) . "/picture?width=50&height=50";
+								?>
+                                <img src="<?php echo $image; //$item['user_pic']; ?>" alt="<?php echo $item['user_screenname']; ?>">
                             </a>
                             <div class="shortInfo">
                                 <a href="<?php echo $item['user_link']; ?>" target="_blank"><?php echo wp_trim_words($item['user_screenname'], 10, '...'); ?></a>
