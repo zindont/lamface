@@ -554,7 +554,7 @@ $table_cat = 'ltt_ff_cate';
 						</div>
 					<?php endif;?>
 					<script>
-						jQuery('.<?= $zone ?> .slider .owl-carousel').owlCarousel({
+						jQuery('.slider .owl-carousel').owlCarousel({
 							loop: true,
 							margin: 5,
 							nav: true,
