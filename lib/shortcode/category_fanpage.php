@@ -9,6 +9,7 @@ if ( ! function_exists( 'lf_category_fanpage_template' ) ) {
 			'title' => '',
 			'id'    => '',
 			'page'  => '',
+			'type'  => '',
 		), $attr ) );
 		if ( empty( $id ) ) {
 			return false;
@@ -40,7 +41,7 @@ if ( ! function_exists( 'lf_category_fanpage_template' ) ) {
 						$fullUrl = 'javascript:;';
 					}
 					?>
-					<div class="col-xs-6 col-md-3 fanpage">
+					<div class="col-xs-6 col-md-3 fanpage<?php echo ($type=='latest')? ' col-lg-2':'';?>">
 						<a target="_blank" href="<?php echo $fullUrl; ?>" class="" title="<?php echo $item['post_header']; ?>">
 							<div class="item-fanpage">
 								<div class="avatar">

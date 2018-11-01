@@ -229,7 +229,7 @@ $table_cat = 'ltt_ff_cate';
 										</div>
 										<div class="box-body">
 											<!-- DoShortcode Fanpage nổi bật -->
-											<?php echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
+											<?php echo do_shortcode('[lf_category_fanpage id="13" page="12" type="latest"]'); ?>
 										</div>
 
 										<div class="box-footer text-center">
@@ -320,7 +320,7 @@ $table_cat = 'ltt_ff_cate';
 										</div>
 										<div class="box-body">
 											<!-- DoShortcode Fanpage nổi bật -->
-											<?php echo do_shortcode('[lf_category_fanpage id="13" page="8"]'); ?>
+											<?php echo do_shortcode('[lf_category_fanpage id="13" page="8" type="saved"]'); ?>
 										</div>
 										<div class="box-footer text-center">
 											<a href="/danh-sach-fanpage/" class="uppercase">Xem tất cả</a>
