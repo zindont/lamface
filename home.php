@@ -237,6 +237,7 @@ $table_cat = 'ltt_ff_cate';
 										</div>
 									</div>
 								</div>
+							</div>
 							<div class="row">
 								<?php if(is_user_logged_in()):?>
 									<div class="col-xs-12 col-md-6">
