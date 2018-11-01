@@ -145,14 +145,14 @@
     }
 }
 @media(max-width:980px){
-    .grid-sizer,
-    .mansory-grid .item-featured {
+    .home .grid-sizer,
+    .home .mansory-grid .item-featured {
         width: calc(50% - 1em);
     }
 }
 @media(max-width:480px){
-    .grid-sizer,
-    .mansory-grid .item-featured {
+    .home .grid-sizer,
+    .home .mansory-grid .item-featured {
         width: calc(100% - 1em);
     }
 }
