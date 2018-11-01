@@ -272,7 +272,7 @@ $table_cat = 'ltt_ff_cate';
 													}
 												}
 												?>
-												<ul class="users-list clearfix">
+												<div class="latest-fanpages">
 													<?php $loop = 0;
 													foreach($fanPages as $fanPage): 
 														if($loop>7) continue;?>
@@ -292,14 +292,20 @@ $table_cat = 'ltt_ff_cate';
 															}
 															$loop++;
 														?>
-														<li>
-															<img src="<?php echo $user_pic;?>" alt="<?php echo $user_screenname;?>" width="50px">
-															<a class="users-list-name" href="<?php echo $user_link;?>" target="_blank"><?php echo $user_screenname;?></a>
-															<span class="users-list-date"><?php echo $total_fanpages[$feed_id];?> Content</span>
-														</li>
+														<div class="col-xs-6 col-md-3 fanpage">
+															<a target="_blank" href="<?php echo $user_link; ?>" class="" title="<?php echo $user_screenname; ?>">
+																<div class="item-fanpage">
+																	<div class="avatar">
+																		<img src="<?php echo $user_pic; ?>" title="<?php echo $user_screenname; ?>"/>
+																	</div>
+																	<div class="users-list-name"><?php echo $user_screenname; ?></div>
+																	<span class="users-list-date"><?php echo $total_fanpages[$feed_id]?> Content</span>
+																</div>
+															</a>
+														</div>
 													<?php endforeach ;?>
-												</ul>
-												<!-- /.users-list -->
+												</div>
+												<!-- /.fanpages-list -->
 											</div>
 											<div class="box-footer text-center">
 												<a href="/fanpage-da-luu/" class="uppercase">Xem tất cả</a>
