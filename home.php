@@ -281,7 +281,7 @@ $table_cat = 'ltt_ff_cate';
 															$user_screenname = $fanPage->user_screenname;
 															//$user_pic = $fanPage->user_pic;
 															$idFace = explode( '.com/', $fanPage->user_link);
-															$user_pic  = "http://graph.facebook.com/" . trim( $idFace['1'] ) . "/picture?width=50&height=50";														
+															$user_pic  = "http://graph.facebook.com/" . trim( $idFace['1'] ) . "/picture?width=100&height=100";														
 															$user_link = $fanPage->user_link;
 															if(in_array($feed_id,$uniqe_fps)){
 																continue;
