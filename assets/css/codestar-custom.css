@@ -128,6 +128,7 @@
 /* home latest fanpages */
 .latest-fanpages .fanpage{
     text-align: center;
+    margin-top: 20px;
 }
 .latest-fanpages .fanpage img{
     max-width: 100%;
