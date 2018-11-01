@@ -124,6 +124,11 @@
 #menu-right{
     border-radius: 5px;
 }
+.users-list-date{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
 /* home latest fanpages */
 .latest-fanpages .fanpage{
