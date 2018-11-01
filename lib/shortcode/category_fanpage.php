@@ -28,7 +28,7 @@ if ( ! function_exists( 'lf_category_fanpage_template' ) ) {
 	        </div>			
 		<?php endif ?>
 
-        <div class="top-fanpages owl-carousel owl-theme">
+        <div class="latest-fanpages">
 				<?php
 				foreach ( $data as $item ) {
 					$idFace = explode( '.com/', $item['user_link'] );
@@ -45,7 +45,6 @@ if ( ! function_exists( 'lf_category_fanpage_template' ) ) {
                             <img src="<?php echo $image; ?>" title="<?php echo $item['post_header']; ?>"/>
                         </div>
 						<div class="name"><?php echo $item['post_header']; ?></div>
-						<div class="overlay"></div>                  
                     </div>
 					</a>
 					<?php

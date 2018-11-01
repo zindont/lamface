@@ -107,7 +107,7 @@ $table_cat = 'ltt_ff_cate';
 											<input type="hidden" value="0" name="page" />
 											<div class="mansory-grid">
 												<div class="grid-sizer"></div>
-												<?php echo do_shortcode('[lf_category_post id="13" title="MẪU QUẢNG CÁO MỚI NHẤT" page="9" ]'); ?>
+												<?php echo do_shortcode('[lf_category_post id="13" title="MẪU QUẢNG CÁO MỚI NHẤT" page="3" ]'); ?>
 											</div>
 										</div>
 										<?php if(is_user_logged_in()):?>
