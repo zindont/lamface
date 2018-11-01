@@ -240,7 +240,7 @@ $table_cat = 'ltt_ff_cate';
 								<div class="col-xs-12 col-md-6">
 									<div class="box box-warning">
 										<div class="box-header with-border">
-												<h3 class="box-title">Fanpage đã lưu</h3>
+												<h3 class="box-title">Fanpage đã lưu</h3>
 												<div class="box-tools pull-right">
 													<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
 													</button>
