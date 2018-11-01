@@ -103,7 +103,11 @@ $table_cat = 'ltt_ff_cate';
 								</div>
 								<div class="box-body">
 									<div class="row">
-										<div class="col-xs-12 col-md-8">
+									
+											<div class="col-xs-12 col-md-9">
+										<?php else:?>
+											<div class="col-xs-12">
+										<?php endif;?>
 											<input type="hidden" value="0" name="page" />
 											<div class="mansory-grid">
 												<div class="grid-sizer"></div>
@@ -111,7 +115,7 @@ $table_cat = 'ltt_ff_cate';
 											</div>
 										</div>
 										<?php if(is_user_logged_in()):?>
-											<div class="col-xs-12 col-md-4">
+											<div class="col-xs-12 col-md-3">
 												<p class="text-center">
 													<strong>Thống kê của bạn - Gói: Basic </strong>
 												</p>

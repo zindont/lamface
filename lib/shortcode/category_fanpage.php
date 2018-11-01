@@ -33,7 +33,7 @@ if ( ! function_exists( 'lf_category_fanpage_template' ) ) {
 				foreach ( $data as $item ) {
 					$feed_id = $item['feed_id'];
 					$idFace = explode( '.com/', $item['user_link'] );
-					$image  = "http://graph.facebook.com/" . trim( $idFace['1'] ) . "/picture?width=200&height=200";
+					$image  = "http://graph.facebook.com/" . trim( $idFace['1'] ) . "/picture?width=100&height=100";
 					if ( ! empty( $urlCate ) ) {
 						$fullUrl = site_url() . $urlCate . '?feed_id=' . trim( $idFace['1'] );
 					} else {
