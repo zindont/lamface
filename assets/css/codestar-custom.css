@@ -124,6 +124,15 @@
 #menu-right{
     border-radius: 5px;
 }
+
+/* home latest fanpages */
+.latest-fanpages .fanpage{
+    text-align: center;
+}
+.latest-fanpages .fanpage img{
+    max-width: 100%;
+    border-radius: 15%;
+}
 @media(min-width:989px){
     .no-padd {
         padding: 0 !important;
