@@ -273,6 +273,8 @@ $table_cat = 'ltt_ff_cate';
 														$feed_id = $fanPage->feed_id;
 														$user_screenname = $fanPage->user_screenname;
 														$user_pic = $fanPage->user_pic;
+														$idFace = explode( '.com/', $fanPage->user_link);
+														$image  = "http://graph.facebook.com/" . trim( $idFace['1'] ) . "/picture?width=50&height=50";														
 														$user_link = $fanPage->user_link;
 														if(in_array($feed_id,$uniqe_fps)){
 															continue;
