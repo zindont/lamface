@@ -356,6 +356,7 @@ $table_cat = 'ltt_ff_cate';
 												<?php 
 													$users = get_users(array('orderby'=>'ID','order'=>'DESC','number'=>12));
 													foreach($users as $user):
+														var_dump(get avatar($user));exit();
 												?>
 													<li>
 														<img src="<?php echo get_avatar_url($user->ID);?>" alt="<?php echo $user->display_name;?>?>">
