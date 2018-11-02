@@ -119,7 +119,7 @@ function clickToShow(id) {
 	slider += '</div>'
 
 	jQuery('#modal-default .modal__title').html(jQuery('#' + id + ' .shortInfo a').html());
-	jQuery('#modal-default .modal__content').html('<img width="100%" src="' + jQuery('#' + id + ' .avatar img').attr('src') + '" />' + slider + '<div class="clr">&nbsp;</div>' + jQuery('#' + id + ' .desc').html());
+	jQuery('#modal-default .modal__content').html('<div class="item-featured" <img width="100%" src="' + jQuery('#' + id + ' .avatar img').attr('src') + '" />' + slider + '<div class="clr">&nbsp;</div>' + jQuery('#' + id + ' .desc').html()) + jQuery('#' + id + ' .meta-wrap').get(0).outerHTML + jQuery('#' + id + ' .bottom').get(0).outerHTML + '</div>';
 	
 	jQuery('#modal-default .owl-carousel').owlCarousel({
 		loop:true,
