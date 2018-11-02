@@ -10,7 +10,7 @@ global $current_user;
         <div class="user-panel">
             <div class="pull-left image">
                 <?php echo get_avatar( 
-                    $current_user, 
+                    $current_user->get('ID'), 
                     false, 
                     '', 
                     __( 'Ảnh đại diện', 'codestar_lamface' ),
