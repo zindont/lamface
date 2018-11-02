@@ -355,9 +355,7 @@ $table_cat = 'ltt_ff_cate';
 											<ul class="users-list clearfix">
 												<?php 
 													$users = get_users(array('orderby'=>'ID','order'=>'DESC','number'=>12));
-													foreach($users as $user):
-														var_dump(get_avatar($user->ID));exit();
-												?>
+													foreach($users as $user):?>
 													<li>
 														<?php echo get_avatar($user->ID); /*?>
 														<img src="<?php echo get_avatar_url($user->ID);?>" alt="<?php echo $user->display_name;?>?>"> */?>
