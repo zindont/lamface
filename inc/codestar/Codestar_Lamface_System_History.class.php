@@ -35,6 +35,8 @@ class Codestar_Lamface_System_History {
 	        $avatarUrl = get_avatar($current_user->ID);
 	    }
 
+	    $avatarUrl = $this->scrapeImage($avatarUrl);
+	    
 		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 		$recordData = array(
 			'target_name' => $current_user->get('user_nicename'),
@@ -62,5 +64,13 @@ class Codestar_Lamface_System_History {
 		$rowObject = $wpdb->get_row( "SELECT * FROM {$post_table} WHERE post_id = '{$post_id}'" );
 
 		return $rowObject->post_header;
-	}	
+	}
+
+	private function scrapeImage($text) {
+	    $pattern = '/src=[\'"]?([^\'" >]+)[\'" >]/';
+	    preg_match($pattern, $text, $link);
+	    $link = $link[1];
+	    $link = urldecode($link);
+	    return $link;
+	}
 }
