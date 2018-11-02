@@ -29,12 +29,18 @@ class Codestar_Lamface_System_History {
 				break;
 		}
 
+	    if (function_exists('get_wp_user_avatar')) {
+	        $avatarUrl = get_wp_user_avatar($current_user->ID);
+	    } else {
+	        $avatarUrl = get_avatar($current_user->ID);
+	    }
+
 		$table_name = $table_prefix . LF_SYSTEM_HISTORIES;
 		$recordData = array(
 			'target_name' => $current_user->get('user_nicename'),
 			'target_code' => (string) $target_code,
 			'target_url' => '#',
-			'target_image' => get_avatar_url( $current_user ),
+			'target_image' => $avatarUrl,
 			'target_message' => $message,
 		);
 		$wpdb->replace( $table_name, $recordData );
