@@ -116,10 +116,13 @@ function clickToShow(id) {
 	jQuery.each(imgs, function(key, value) {
 		slider += '<img src="' + jQuery(value).attr('src') + '" />';
 	});
-	slider += '</div>'
+	slider += '</div>';
+	desc = jQuery('#' + id + ' .desc').html();
+	meta_wrap = jQuery('#' + id + ' .meta-wrap').clone().addClass('col-xs-12 no-padding').get(0).outerHTML;
+	bottom = jQuery('#' + id + ' .bottom').clone().addClass('col-xs-12 no-padding').get(0).outerHTML;
 
 	jQuery('#modal-default .modal__title').html(jQuery('#' + id + ' .shortInfo a').html());
-	jQuery('#modal-default .modal__content').html('<div class="item-featured"> <img width="100%" src="' + jQuery('#' + id + ' .avatar img').attr('src') + '" />' + slider + '<div class="clr">&nbsp;</div>' + jQuery('#' + id + ' .desc').html() + jQuery('#' + id + ' .meta-wrap').get(0).outerHTML + jQuery('#' + id + ' .bottom').get(0).outerHTML + '</div>');
+	jQuery('#modal-default .modal__content').html('<div class="item-featured"> <img width="100%" src="' + jQuery('#' + id + ' .avatar img').attr('src') + '" />' + slider + '<div class="clr">&nbsp;</div>' + desc + meta_wrap + bottom + '</div>');
 	
 	jQuery('#modal-default .owl-carousel').owlCarousel({
 		loop:true,
