@@ -354,7 +354,7 @@ $table_cat = 'ltt_ff_cate';
 										<div class="box-body no-padding">
 											<ul class="users-list clearfix">
 												<?php 
-													$users = get_users(array('orderby'=>'ID','order'=>'DESC'));
+													$users = get_users(array('orderby'=>'ID','order'=>'DESC','number'=>12));
 													foreach($users as $user):
 												?>
 													<li>
