@@ -359,7 +359,8 @@ $table_cat = 'ltt_ff_cate';
 														var_dump(get_avatar($user->ID));exit();
 												?>
 													<li>
-														<img src="<?php echo get_avatar_url($user->ID);?>" alt="<?php echo $user->display_name;?>?>">
+														<?php echo get_avatar($user->ID); /*?>
+														<img src="<?php echo get_avatar_url($user->ID);?>" alt="<?php echo $user->display_name;?>?>"> */?>
 														<a class="users-list-name" href="#"><?php echo $user->display_name;?></a>
 														<span class="users-list-date"><?php printf( __('Thành viên từ %s ', 'codestar_lamface'), 
 														date( 
