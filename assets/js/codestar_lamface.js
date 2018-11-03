@@ -78,9 +78,9 @@ function initMansory() {
 }
 
 function initExpands() {
-	jQuery.each(jQuery('.mansory-grid .desc'), function(key, value) {
-		if (jQuery(this).height() > 300) {
-			jQuery(this).attr('style', 'height:300px !important; overflow-y:hidden !important');
+	jQuery.each(jQuery('.mansory-grid .desc, .owl-carousel .desc'), function(key, value) {
+		if (jQuery(this).height() > 120) {
+			jQuery(this).attr('style', 'height:120px !important; overflow-y:hidden !important');
 			jQuery(this).parent().find('.click-expanding').show();
 		}
 	});
@@ -91,9 +91,15 @@ jQuery(".order-class").change(function (e) {
 });
 
 function descExpanding(id) {
-	console.log('click on ' + id + ' has been raised');
-	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: auto !important; overflow-y: none !important');
+	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: 200px !important; overflow-y: auto !important');
 	jQuery('#' + jQuery.trim(id) + ' .click-expanding').hide();
+	jQuery('#' + jQuery.trim(id) + ' .click-contracting').show();
+}
+
+function descContracting(id) {
+	jQuery('#' + jQuery.trim(id) + ' .desc').attr('style', 'height: 120px !important; overflow-y: hidden !important');
+	jQuery('#' + jQuery.trim(id) + ' .click-contracting').hide();
+	jQuery('#' + jQuery.trim(id) + ' .click-expanding').show();
 }
 
 // Initial config for setting up modals
@@ -110,10 +116,13 @@ function clickToShow(id) {
 	jQuery.each(imgs, function(key, value) {
 		slider += '<img src="' + jQuery(value).attr('src') + '" />';
 	});
-	slider += '</div>'
+	slider += '</div>';
+	desc = jQuery('#' + id + ' .desc').html();
+	meta_wrap = jQuery('#' + id + ' .meta-wrap').clone().addClass('col-xs-12 no-padding').get(0).outerHTML;
+	bottom = jQuery('#' + id + ' .bottom').clone().addClass('col-xs-12 no-padding').get(0).outerHTML;
 
-	jQuery('#modal-default .modal__title').html(jQuery('#' + id + ' .title').html());
-	jQuery('#modal-default .modal__content').html('<img width="100%" src="' + jQuery('#' + id + ' .avatar img').attr('src') + '" />' + slider + '<div class="clr">&nbsp;</div>' + jQuery('#' + id + ' .desc').html());
+	jQuery('#modal-default .modal__title').html(jQuery('#' + id + ' .shortInfo a').html());
+	jQuery('#modal-default .modal__content').html('<div class="item-featured"> <img width="100%" src="' + jQuery('#' + id + ' .avatar img').attr('src') + '" />' + slider + '<div class="clr">&nbsp;</div>' + desc + meta_wrap + bottom + '</div>');
 	
 	jQuery('#modal-default .owl-carousel').owlCarousel({
 		loop:true,

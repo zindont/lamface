@@ -9,12 +9,18 @@ class Codestar_Lamface_Base {
 	function __construct(){
 		// Require
 		require_once get_template_directory() . '/inc/codestar/Codestar_Breadcrumbs.class.php';
+		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Cron.class.php';
+		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Theme_Activation.class.php';
+		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_Widgets.class.php';
+		require_once get_template_directory() . '/inc/codestar/Codestar_Lamface_System_History.class.php';
 
 		// Filter
 		add_filter( 'body_class', array($this, 'codestar_lamface_body_classes') );
 
 		// Actions
 		add_action( 'codestar_breadcrumbs', array($this, 'codestar_lamface_print_breadcrumbs'), 10, 1 );
+		add_action( 'after_setup_theme', array($this, 'codestar_lamface_firstly_hooks'), 30, 1 );
+		add_action( 'widgets_init', array($this, 'codestar_lamface_widgets_init'), 10 );
 	}
 
 	/**
@@ -36,6 +42,18 @@ class Codestar_Lamface_Base {
 	 */
 	function codestar_lamface_print_breadcrumbs()	{
 		Codestar_Breadcrumbs::breadcrumb();
+	}
+
+	/**
+	 * Firstly hook
+	 */
+	public function codestar_lamface_firstly_hooks() {
+		new Codestar_Lamface_Theme_Activation();
+		new Codestar_Lamface_System_History();
+	}
+
+	public function codestar_lamface_widgets_init()	{
+		new Codestar_Lamface_Widgets();
 	}
 
 	// get total contents

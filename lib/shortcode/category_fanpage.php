@@ -9,6 +9,7 @@ if ( ! function_exists( 'lf_category_fanpage_template' ) ) {
 			'title' => '',
 			'id'    => '',
 			'page'  => '',
+			'type'  => '',
 		), $attr ) );
 		if ( empty( $id ) ) {
 			return false;
@@ -19,7 +20,7 @@ if ( ! function_exists( 'lf_category_fanpage_template' ) ) {
 		$cateArray = $wpdb->get_results( "SELECT `cate_name`,`cate_url` FROM `ltt_ff_cate` WHERE `cate_id` = {$id}",
 			ARRAY_A );
 		$urlCate   = array_values( $cateArray[0] )[1];
-		
+		$total_fanpages = Codestar_Lamface_Base::codestar_get_list_posts_total_in_pages();
 		?>
 		
 		<?php if (!empty($title)): ?>
@@ -28,26 +29,29 @@ if ( ! function_exists( 'lf_category_fanpage_template' ) ) {
 	        </div>			
 		<?php endif ?>
 
-        <div class="top-fanpages owl-carousel owl-theme">
+        <div class="latest-fanpages">
 				<?php
 				foreach ( $data as $item ) {
+					$feed_id = $item['feed_id'];
 					$idFace = explode( '.com/', $item['user_link'] );
-					$image  = "http://graph.facebook.com/" . trim( $idFace['1'] ) . "/picture?width=247&height=300";
+					$image  = "http://graph.facebook.com/" . trim( $idFace['1'] ) . "/picture?width=100&height=100";
 					if ( ! empty( $urlCate ) ) {
 						$fullUrl = site_url() . $urlCate . '?feed_id=' . trim( $idFace['1'] );
 					} else {
 						$fullUrl = 'javascript:;';
 					}
 					?>
-					<a target="_blank" href="<?php echo $fullUrl; ?>" class="" title="<?php echo $item['post_header']; ?>">
-                    <div class="item-fanpage">
-                        <div class="avatar">
-                            <img src="<?php echo $image; ?>" title="<?php echo $item['post_header']; ?>"/>
-                        </div>
-						<div class="name"><?php echo $item['post_header']; ?></div>
-						<div class="overlay"></div>                  
-                    </div>
-					</a>
+					<div class="col-xs-6 col-md-3 fanpage<?php echo ($type=='latest')? ' col-lg-2':'';?>">
+						<a target="_blank" href="<?php echo $fullUrl; ?>" class="" title="<?php echo $item['post_header']; ?>">
+							<div class="item-fanpage">
+								<div class="avatar">
+									<img src="<?php echo $image; ?>" title="<?php echo $item['post_header']; ?>"/>
+								</div>
+								<div class="users-list-name"><?php echo $item['post_header']; ?></div>
+								<span class="users-list-date"><?php echo $total_fanpages[$feed_id]?> Content</span>
+							</div>
+						</a>
+					</div>
 					<?php
 				}
 				?>

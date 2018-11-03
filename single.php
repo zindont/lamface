@@ -33,7 +33,4 @@ get_header();
 	</div><!-- #primary -->
 </div><!-- #content -->
 
-<div id="menu-right">
-	<?php get_sidebar(); ?>
-</div>
 <?php get_footer(); ?>

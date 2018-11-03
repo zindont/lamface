@@ -1,8 +1,8 @@
 /*!
 Theme Name: Làm Face
-Theme URI: https://quachcuong.com/projects
-Author: Quách Cường
-Author URI: https://quachcuong.com
+Theme URI: https://thecodestar.com
+Author: The Code Star
+Author URI: https://thecodestar.com
 Description: Description
 Version: 1.0.0
 License: GNU General Public License v2 or later
@@ -374,10 +374,6 @@ footer {
 	margin-bottom: 15px;
   	float: left;
 }
-.mansory-grid .item-featured .desc {
-	height: auto !important;
-	overflow: auto !important
-}
 
 .post-thumbnail img {
 	border-radius: 12px;
@@ -587,7 +583,7 @@ footer {
 .clr { clear: both; float: none }
 
 /* #input stype */
-.filter-zone input {
+/*.filter-zone input {
 	border-radius: 5px;
 	border: 0px;
     font-size: 13px;
@@ -607,7 +603,7 @@ button {
 .filter-zone select,
 .filter-zone select option {
 	font-family: FontAwesome, quicksand;
-}
+}*/
 
 .most-like-zone,
 .most-save-zone { 
@@ -877,7 +873,7 @@ button {
 }
 /* ------- #modal ---------- */
 .modal__content .slider {
-	margin-top: -86px;
+	/* margin-top: -86px; */
 }
 .modal__content .slider .owl-prev,
 .modal__content .slider .owl-next {
@@ -959,13 +955,13 @@ button {
 	font-size: 12px !important;
 	padding: 5px 10px
 }
-.select2-container--default .select2-selection--single .select2-selection__rendered {
+/*.select2-container--default .select2-selection--single .select2-selection__rendered {
 	font-size: 12px;
 	padding: 5px 10px
 }
 .select2-container .select2-selection--single {
 	height: 38px !important
-}
+}*/
 
 /* #user Tabs */
 .user-tabs {
